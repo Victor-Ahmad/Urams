@@ -30,6 +30,14 @@
 </template>
 
 <script>
+import plumbingIcon from "@/assets/images/services/Plumbing.png";
+import wallPreparationIcon from "@/assets/images/services/Wall Preparation.png";
+import tilingIcon from "@/assets/images/services/Tiling.png";
+import siliconeApplicationIcon from "@/assets/images/services/Silicone Application.png";
+import ceilingPaintingIcon from "@/assets/images/services/Ceiling Painting.png";
+import bathroomFixturesIcon from "@/assets/images/services/Bathroom Fixtures.png";
+import fullRenovationIcon from "@/assets/images/services/Full Bathroom Renovation.png";
+
 export default {
   name: "ServicesPage",
   data() {
@@ -38,38 +46,38 @@ export default {
         {
           title: "Plumbing",
           description: "Expert installation and repair of pipes and fixtures.",
-          icon: "https://via.placeholder.com/100", // Replace with actual icon URL
+          icon: plumbingIcon,
         },
         {
           title: "Wall Preparation",
           description: "Wall leveling and construction of new walls if needed.",
-          icon: "https://via.placeholder.com/100", // Replace with actual icon URL
+          icon: wallPreparationIcon,
         },
         {
           title: "Tiling",
           description: "High-quality tiling services for walls and floors.",
-          icon: "https://via.placeholder.com/100", // Replace with actual icon URL
+          icon: tilingIcon,
         },
         {
           title: "Silicone Application",
           description: "Application of silicone for sealing and protection.",
-          icon: "https://via.placeholder.com/100", // Replace with actual icon URL
+          icon: siliconeApplicationIcon,
         },
         {
           title: "Ceiling Painting",
           description: "Professional ceiling painting and finishing.",
-          icon: "https://via.placeholder.com/100", // Replace with actual icon URL
+          icon: ceilingPaintingIcon,
         },
         {
-          title: "Installation of Bathroom Fixtures",
+          title: "Bathroom Fixtures",
           description:
             "Installation of shower cabins, mirrors, sinks, and cabinets.",
-          icon: "https://via.placeholder.com/100", // Replace with actual icon URL
+          icon: bathroomFixturesIcon,
         },
         {
           title: "Full Bathroom Renovation",
           description: "Complete renovation services from start to finish.",
-          icon: "https://via.placeholder.com/100", // Replace with actual icon URL
+          icon: fullRenovationIcon,
         },
       ],
     };

@@ -1,9 +1,9 @@
 <template>
   <header class="header">
     <div class="container flex justify-between items-center">
-      <!-- Logo using an online placeholder -->
+      <!-- Updated Logo -->
       <div class="logo">
-        <img src="https://placeimg.com/150/150/arch" alt="Urams Logo" />
+        <img :src="logo" alt="Urams Logo" />
       </div>
 
       <!-- Navigation Links -->
@@ -29,8 +29,15 @@
 </template>
 
 <script>
+import logo from "@/assets/images/logo.png"; // Import the logo image
+
 export default {
   name: "AppHeader",
+  data() {
+    return {
+      logo,
+    };
+  },
 };
 </script>
 
@@ -54,7 +61,7 @@ export default {
 
 /* Logo Styling */
 .logo img {
-  width: 120px; /* Adjusted size for a better fit */
+  width: 80px; /* Adjusted size for a better fit */
 }
 
 /* Navigation Styles */

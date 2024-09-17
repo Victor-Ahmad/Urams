@@ -9,6 +9,7 @@
       <div class="steps-grid">
         <div class="step-box" v-for="(step, index) in steps" :key="index">
           <div class="step-number">{{ index + 1 }}</div>
+          <img :src="step.icon" alt="Step Icon" class="step-icon" />
           <h3>{{ step.title }}</h3>
           <p>{{ step.description }}</p>
         </div>
@@ -18,30 +19,41 @@
 </template>
 
 <script>
+import step1 from "@/assets/images/steps/step_1.png";
+import step2 from "@/assets/images/steps/step_2.png";
+import step3 from "@/assets/images/steps/step_3.png";
+import step4 from "@/assets/images/steps/step_4.png";
+import step5 from "@/assets/images/steps/step_5.png";
+
 export default {
   name: "ProcessSteps",
   data() {
     return {
       steps: [
         {
+          icon: step1,
           title: "Free Consultation",
           description: "Discuss your needs and expectations with our experts.",
         },
         {
+          icon: step2,
           title: "Site Visit",
           description:
             "We visit your location to assess the space, equipment, and work required.",
         },
         {
+          icon: step3,
           title: "Quotation & Planning",
           description:
             "Receive a detailed quote and plan outlining all steps and timelines.",
         },
         {
+          icon: step4,
           title: "Approval",
           description: "Review and approve the plan and quotation.",
         },
         {
+          icon: step5,
           title: "Installation & Delivery",
           description:
             "Our team executes the project, delivering a fully renovated bathroom.",
@@ -53,6 +65,14 @@ export default {
 </script>
 
 <style scoped>
+/* Adding step-icon styling */
+.step-icon {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 15px;
+  object-fit: contain;
+}
+
 /* Process Section Styling */
 .process {
   background-color: #f0f4f8; /* Soft background to separate this section */

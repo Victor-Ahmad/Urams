@@ -30,7 +30,7 @@
 
         <!-- Image Column -->
         <div class="col">
-          <img src="https://via.placeholder.com/400" alt="About Us" />
+          <img :src="aboutUsImage" alt="About Us" />
         </div>
       </div>
     </div>
@@ -46,8 +46,15 @@
 </template>
 
 <script>
+import aboutUsImage from "@/assets/images/about_us.jpg"; // Import the image
+
 export default {
   name: "AboutPage",
+  data() {
+    return {
+      aboutUsImage,
+    };
+  },
 };
 </script>
 
@@ -60,7 +67,7 @@ export default {
 
 /* Hero Section */
 .hero {
-  background-image: url("https://via.placeholder.com/1920x600"); /* Placeholder hero image */
+  background-image: url("@/assets/images/about_us.jpg"); /* Use the correct image */
   background-size: cover;
   background-position: center;
   height: 60vh;

@@ -40,38 +40,44 @@
 </template>
 
 <script>
+import step1 from "@/assets/images/steps/step_1.png";
+import step2 from "@/assets/images/steps/step_2.png";
+import step3 from "@/assets/images/steps/step_3.png";
+import step4 from "@/assets/images/steps/step_4.png";
+import step5 from "@/assets/images/steps/step_5.png";
+
 export default {
   name: "ProcessPage",
   data() {
     return {
       steps: [
         {
+          icon: step1,
           title: "Free Consultation",
           description: "Discuss your needs and expectations with our experts.",
-          icon: "https://via.placeholder.com/100", // Replace with actual icon URL
         },
         {
+          icon: step2,
           title: "Site Visit",
           description:
             "We visit your location to assess the space, equipment, and work required.",
-          icon: "https://via.placeholder.com/100", // Replace with actual icon URL
         },
         {
+          icon: step3,
           title: "Quotation & Planning",
           description:
             "Receive a detailed quote and plan outlining all steps and timelines.",
-          icon: "https://via.placeholder.com/100", // Replace with actual icon URL
         },
         {
+          icon: step4,
           title: "Approval",
           description: "Review and approve the plan and quotation.",
-          icon: "https://via.placeholder.com/100", // Replace with actual icon URL
         },
         {
+          icon: step5,
           title: "Installation & Delivery",
           description:
             "Our team executes the project, delivering a fully renovated bathroom.",
-          icon: "https://via.placeholder.com/100", // Replace with actual icon URL
         },
       ],
     };
@@ -80,6 +86,13 @@ export default {
 </script>
 
 <style scoped>
+/* Icon Styling */
+.icon img {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+}
+
 /* Process Page Styling */
 .process-page {
   color: #333;

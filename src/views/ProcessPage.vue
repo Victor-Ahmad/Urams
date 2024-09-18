@@ -199,7 +199,9 @@
     flex-direction: column;
     align-items: center;
   }
-
+  .steps-section {
+    max-width: 80%;
+  }
   .step-slot {
     width: 100%;
     margin-bottom: 40px;

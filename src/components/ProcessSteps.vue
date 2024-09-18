@@ -545,5 +545,8 @@ export default {
   .step-text p {
     font-size: 14px;
   }
+  .stair-step {
+    max-width: 80%;
+  }
 }
 </style>

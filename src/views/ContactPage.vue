@@ -303,6 +303,9 @@ textarea {
 
 /* Responsive Design */
 @media (max-width: 768px) {
+  .container {
+    max-width: 80%;
+  }
   .contact-form {
     max-width: 100%;
   }
@@ -325,6 +328,13 @@ textarea {
 
   .contact-details i {
     margin-bottom: 10px;
+  }
+  .form-group input,
+  .form-group textarea {
+    max-width: 90%;
+  }
+  .submit-button {
+    max-width: 100%;
   }
 }
 </style>

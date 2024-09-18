@@ -117,5 +117,8 @@ export default {
     max-width: 280px;
     margin: 0 auto;
   }
+  .container {
+    max-width: 80%;
+  }
 }
 </style>

@@ -3,16 +3,18 @@
     <!-- Hero Section -->
     <div class="hero">
       <div class="hero-overlay">
-        <h1>About Us</h1>
-        <p>Committed to Quality and Customer Satisfaction</p>
+        <h1 data-aos="fade-down">About Us</h1>
+        <p data-aos="fade-up" data-aos-delay="200">
+          Committed to Quality and Customer Satisfaction
+        </p>
       </div>
     </div>
 
     <!-- Content Section -->
     <div class="container content">
-      <div class="row">
+      <div class="grid">
         <!-- Text Column -->
-        <div class="col">
+        <div class="col-text" data-aos="fade-right">
           <h2>Who We Are</h2>
           <p>
             With years of experience in bathroom renovations, we pride ourselves
@@ -29,14 +31,14 @@
         </div>
 
         <!-- Image Column -->
-        <div class="col">
+        <div class="col-image" data-aos="fade-left">
           <img :src="aboutUsImage" alt="About Us" />
         </div>
       </div>
     </div>
 
     <!-- Call to Action Section -->
-    <div class="cta-section">
+    <div class="cta-section" data-aos="zoom-in">
       <h2>Learn More About Our Services</h2>
       <router-link to="/services">
         <button class="cta-button primary">Explore Our Services</button>
@@ -46,10 +48,19 @@
 </template>
 
 <script>
-import aboutUsImage from "@/assets/images/about_us.jpg"; // Import the image
+import AOS from "aos";
+import "aos/dist/aos.css";
+import aboutUsImage from "@/assets/images/leading/about_us.jpg"; // Updated to new image
 
 export default {
   name: "AboutPage",
+  mounted() {
+    AOS.init({
+      duration: 1000,
+      easing: "ease-in-out",
+      once: true,
+    });
+  },
   data() {
     return {
       aboutUsImage,
@@ -59,18 +70,19 @@ export default {
 </script>
 
 <style scoped>
-/* About Page Styling */
+/* General Styling */
 .about-page {
   color: #333;
-  font-family: "Arial", sans-serif;
+  font-family: "Helvetica Neue", sans-serif;
 }
 
 /* Hero Section */
 .hero {
-  background-image: url("@/assets/images/about_us.jpg"); /* Use the correct image */
+  background-image: url("@/assets/images/leading/about_us.jpg"); /* Leading image */
   background-size: cover;
+  background-attachment: fixed;
   background-position: center;
-  height: 60vh;
+  height: 70vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -78,100 +90,104 @@ export default {
 }
 
 .hero-overlay {
-  background-color: rgba(0, 0, 0, 0.5);
-  padding: 40px;
+  background: rgba(0, 0, 0, 0.6); /* Dark overlay for contrast */
+  padding: 50px;
   text-align: center;
-  color: white;
+  color: #ffffff;
+  width: 100%;
 }
 
 .hero h1 {
-  font-size: 48px;
+  font-size: 60px;
   font-weight: bold;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
+  text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5); /* Add text shadow for emphasis */
 }
 
 .hero p {
-  font-size: 20px;
+  font-size: 24px;
   font-weight: 300;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 /* Content Section */
 .container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 60px 20px;
+  padding: 80px 20px;
 }
 
-.row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 40px;
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 50px;
   align-items: center;
 }
 
-.col {
-  flex: 1;
+.col-text h2 {
+  font-size: 36px;
+  margin-bottom: 25px;
+  color: #2c3e50;
 }
 
-.col img {
+.col-text p {
+  font-size: 18px;
+  line-height: 1.8;
+  margin-bottom: 20px;
+  color: #555;
+}
+
+.col-image img {
   width: 100%;
   height: auto;
   border-radius: 10px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2); /* Shadow effect */
 }
 
-h2 {
-  font-size: 36px;
-  margin-bottom: 20px;
-}
-
-p {
-  font-size: 18px;
-  line-height: 1.6;
-  margin-bottom: 20px;
-}
-
-/* CTA Section */
+/* Call-to-Action Section */
 .cta-section {
-  background-color: #007bff;
+  background-color: #007bff; /* Vibrant color for CTA */
   color: white;
   text-align: center;
-  padding: 40px 20px;
-  margin-top: 60px;
+  padding: 50px 20px;
+  margin-top: 80px;
 }
 
 .cta-section h2 {
-  font-size: 32px;
-  margin-bottom: 20px;
+  font-size: 36px;
+  margin-bottom: 30px;
 }
 
 .cta-button {
-  background-color: #28a745;
+  background-color: #2ecc71;
   color: white;
   padding: 15px 30px;
   border: none;
-  border-radius: 5px;
+  border-radius: 50px;
   font-size: 18px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  box-shadow: 0 8px 15px rgba(46, 204, 113, 0.3); /* Button shadow */
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .cta-button:hover {
-  background-color: #218838;
+  background-color: #27ae60;
+  box-shadow: 0 12px 25px rgba(46, 204, 113, 0.5); /* Hover effect */
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
   .hero h1 {
-    font-size: 36px;
+    font-size: 40px;
   }
 
   .hero p {
     font-size: 18px;
   }
 
-  .row {
-    flex-direction: column;
-    text-align: center;
+  .grid {
+    grid-template-columns: 1fr;
   }
 
   .cta-section h2 {
@@ -180,7 +196,7 @@ p {
 
   .cta-button {
     width: 100%;
-    max-width: 280px;
+    max-width: 300px;
   }
 }
 </style>

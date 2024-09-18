@@ -2,8 +2,8 @@
   <section class="services">
     <div class="container">
       <!-- Services Heading -->
-      <h2>Our Services</h2>
-      <p class="subheading">
+      <h2 data-aos="fade-up">Our Services</h2>
+      <p class="subheading" data-aos="fade-up" data-aos-delay="100">
         Comprehensive solutions for your bathroom renovation needs.
       </p>
 
@@ -13,8 +13,12 @@
           class="service-box"
           v-for="(service, index) in services"
           :key="index"
+          data-aos="fade-up"
+          :data-aos-delay="index * 150"
         >
-          <img :src="service.icon" alt="Service Icon" class="service-icon" />
+          <div class="icon-wrapper" data-aos="zoom-in" data-aos-delay="200">
+            <img :src="service.icon" alt="Service Icon" class="service-icon" />
+          </div>
           <h3>{{ service.title }}</h3>
           <p>{{ service.description }}</p>
         </div>
@@ -24,6 +28,9 @@
 </template>
 
 <script>
+import AOS from "aos";
+import "aos/dist/aos.css";
+
 import plumbingIcon from "@/assets/images/services/Plumbing.png";
 import wallPreparationIcon from "@/assets/images/services/Wall Preparation.png";
 import tilingIcon from "@/assets/images/services/Tiling.png";
@@ -34,6 +41,13 @@ import fullRenovationIcon from "@/assets/images/services/Full Bathroom Renovatio
 
 export default {
   name: "ServiceOverview",
+  mounted() {
+    AOS.init({
+      duration: 1200,
+      easing: "ease-in-out",
+      once: true,
+    });
+  },
   data() {
     return {
       services: [
@@ -82,64 +96,80 @@ export default {
 <style scoped>
 /* Service Section Styles */
 .services {
-  padding: 50px 0;
-  background-color: #f8f9fa;
+  padding: 120px 0;
+  background: radial-gradient(
+    circle at top,
+    #ffffff,
+    #f3f4f6
+  ); /* Light gradient for a premium feel */
   text-align: center;
+  overflow: hidden;
 }
 
 .services h2 {
-  font-size: 36px;
+  font-size: 50px;
   font-weight: bold;
-  margin-bottom: 20px;
+  color: #2c3e50;
+  margin-bottom: 30px;
 }
 
 .subheading {
-  font-size: 18px;
-  color: #666;
-  margin-bottom: 40px;
+  font-size: 20px;
+  color: #7f8c8d;
+  margin-bottom: 70px;
 }
 
 /* Grid Layout for Services */
 .service-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 30px;
+  gap: 50px;
+  padding: 0 20px;
 }
 
-/* Service Box Styling */
+/* 3D Card Effect */
 .service-box {
-  background-color: white;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: #f7f8fa;
+  border-radius: 20px;
+  box-shadow: 10px 10px 25px rgba(0, 0, 0, 0.1),
+    -10px -10px 25px rgba(255, 255, 255, 0.7);
+  padding: 40px;
   text-align: center;
+  transition: transform 0.4s ease;
+  transform-style: preserve-3d; /* Preserve 3D effect */
+  perspective: 1000px; /* Perspective depth */
+  transform: rotateX(8deg) rotateY(-8deg); /* Initial 3D tilt */
 }
 
-/* Hover Effect for Service Box */
-.service-box:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+/* Icon Wrapper */
+.icon-wrapper {
+  background: linear-gradient(145deg, #00aaff, #0077cc);
+  padding: 25px;
+  border-radius: 50%;
+  display: inline-block;
+  margin-bottom: 25px;
 }
 
-/* Service Icons */
 .service-icon {
-  width: 80px;
-  height: 80px;
-  margin-bottom: 15px;
+  width: 75px;
+  height: 75px;
+  object-fit: contain;
 }
 
 /* Service Titles */
 .service-box h3 {
-  font-size: 24px;
-  margin-bottom: 10px;
+  font-size: 26px;
+  font-weight: bold;
+  margin-bottom: 15px;
+  color: #34495e;
 }
 
 /* Service Descriptions */
 .service-box p {
-  font-size: 16px;
-  color: #666;
-  line-height: 1.5;
+  font-size: 17px;
+  color: #7f8c8d;
+  line-height: 1.7;
+  margin-bottom: 0;
 }
 
 /* Responsive Design */
@@ -152,10 +182,6 @@ export default {
 @media (max-width: 768px) {
   .service-grid {
     grid-template-columns: 1fr;
-  }
-
-  .service-box {
-    padding: 15px;
   }
 }
 </style>

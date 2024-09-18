@@ -11,58 +11,40 @@
       </div>
     </div>
 
-    <!-- Filter Options -->
-    <div class="filter-options">
-      <button
-        @click="filterGallery('all')"
-        :class="{ active: selectedFilter === 'all' }"
-      >
-        All
-      </button>
-      <button
-        @click="filterGallery('tiling')"
-        :class="{ active: selectedFilter === 'tiling' }"
-      >
-        Tiling
-      </button>
-      <button
-        @click="filterGallery('plumbing')"
-        :class="{ active: selectedFilter === 'plumbing' }"
-      >
-        Plumbing
-      </button>
-      <button
-        @click="filterGallery('full-renovation')"
-        :class="{ active: selectedFilter === 'full-renovation' }"
-      >
-        Full Renovation
-      </button>
-    </div>
-
     <!-- Gallery Grid -->
     <div class="gallery-grid">
       <div
-        v-for="(item, index) in filteredGallery"
+        v-for="(item, index) in gallery"
         :key="index"
         class="gallery-item"
         @click="openModal(item)"
       >
-        <img :src="item.image" :alt="item.description" loading="lazy" />
+        <div class="gallery-image-wrapper">
+          <img
+            :src="item.image"
+            :alt="'Project ' + (index + 1)"
+            loading="lazy"
+          />
+        </div>
         <div class="overlay">
-          <p>{{ item.description }}</p>
+          <p>{{ "Project " + (index + 1) }}</p>
         </div>
       </div>
     </div>
 
-    <!-- Lightbox Modal -->
-    <div v-if="selectedImage" class="modal" @click="closeModal">
-      <img
-        :src="selectedImage.image"
-        :alt="selectedImage.description"
-        class="modal-image"
-      />
-      <p class="modal-description">{{ selectedImage.description }}</p>
-    </div>
+    <!-- Lightbox Modal Teleported to Body -->
+    <teleport to="body">
+      <div v-if="selectedImage" class="modal">
+        <div class="modal-content">
+          <img
+            :src="selectedImage.image"
+            :alt="'Project ' + selectedImageIndex"
+            class="modal-image"
+          />
+          <span class="close-icon" @click="closeModal">&times;</span>
+        </div>
+      </div>
+    </teleport>
   </section>
 </template>
 
@@ -71,61 +53,25 @@ export default {
   name: "GalleryPage",
   data() {
     return {
-      selectedFilter: "all",
       selectedImage: null,
-      gallery: [
-        {
-          image: "https://via.placeholder.com/400",
-          category: "tiling",
-          description: "Tiling Project 1",
-        },
-        {
-          image: "https://via.placeholder.com/400",
-          category: "plumbing",
-          description: "Plumbing Project 1",
-        },
-        {
-          image: "https://via.placeholder.com/400",
-          category: "full-renovation",
-          description: "Full Renovation Project 1",
-        },
-        {
-          image: "https://via.placeholder.com/400",
-          category: "tiling",
-          description: "Tiling Project 2",
-        },
-        {
-          image: "https://via.placeholder.com/400",
-          category: "plumbing",
-          description: "Plumbing Project 2",
-        },
-        {
-          image: "https://via.placeholder.com/400",
-          category: "full-renovation",
-          description: "Full Renovation Project 2",
-        },
-      ],
+      selectedImageIndex: null,
+      gallery: Array.from({ length: 20 }, (v, k) => ({
+        image: require(`@/assets/images/gallery/${k + 1}.jpeg`),
+      })),
     };
   },
-  computed: {
-    filteredGallery() {
-      if (this.selectedFilter === "all") {
-        return this.gallery;
-      }
-      return this.gallery.filter(
-        (item) => item.category === this.selectedFilter
-      );
-    },
-  },
   methods: {
-    filterGallery(filter) {
-      this.selectedFilter = filter;
-    },
     openModal(item) {
       this.selectedImage = item;
+      this.selectedImageIndex = this.gallery.indexOf(item) + 1;
+      // Disable scrolling when modal is open
+      document.body.style.overflow = "hidden";
     },
     closeModal() {
       this.selectedImage = null;
+      this.selectedImageIndex = null;
+      // Enable scrolling when modal is closed
+      document.body.style.overflow = "";
     },
   },
 };
@@ -136,11 +82,14 @@ export default {
 .gallery-page {
   color: #333;
   font-family: "Arial", sans-serif;
+  padding-bottom: 60px;
+  position: relative;
+  z-index: 1; /* Ensures page content is below the modal */
 }
 
 /* Hero Section */
 .hero {
-  background-image: url("https://via.placeholder.com/1920x600"); /* Replace with actual hero image */
+  background-image: url("@/assets/images/leading/our_work.jpg");
   background-size: cover;
   background-position: center;
   height: 50vh;
@@ -163,37 +112,15 @@ export default {
 
 .hero p {
   font-size: 20px;
-}
-
-/* Filter Options */
-.filter-options {
-  display: flex;
-  justify-content: center;
-  margin: 40px 0;
-  gap: 20px;
-}
-
-.filter-options button {
-  padding: 10px 20px;
-  font-size: 16px;
-  cursor: pointer;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  transition: background-color 0.3s ease;
-}
-
-.filter-options button.active {
-  background-color: #0056b3;
+  font-weight: 300;
 }
 
 /* Gallery Grid */
 .gallery-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 20px;
-  padding: 20px;
+  padding: 40px;
 }
 
 .gallery-item {
@@ -201,11 +128,19 @@ export default {
   overflow: hidden;
   cursor: pointer;
   transition: transform 0.3s ease;
+  border-radius: 15px; /* Rounded corners for gallery items */
+}
+
+.gallery-item .gallery-image-wrapper {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
 }
 
 .gallery-item img {
   width: 100%;
-  height: auto;
+  height: 100%;
+  object-fit: cover; /* Ensures image covers the entire project space */
   transition: transform 0.3s ease;
 }
 
@@ -236,26 +171,65 @@ export default {
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(0, 0, 0, 0.9); /* Transparent dark background */
   display: flex;
   align-items: center;
   justify-content: center;
-  cursor: pointer;
+  z-index: 9999; /* Ensure the modal is above all other elements */
+}
+
+.modal-content {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh; /* Ensure the modal takes full screen height */
+  padding: 20px;
 }
 
 .modal-image {
-  max-width: 80%;
-  max-height: 80%;
+  max-height: 100%; /* Adjust the image to fit within the screen height */
+  max-width: 100%;
+  object-fit: contain;
+  border-radius: 20px; /* Rounded corners for the modal image */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  animation: fadeIn 0.3s ease-in-out;
 }
 
-.modal-description {
+/* Close Icon Styling */
+.close-icon {
+  position: absolute;
+  top: 20px;
+  right: 40px;
+  font-size: 40px;
   color: white;
-  margin-top: 20px;
-  font-size: 18px;
-  text-align: center;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.close-icon:hover {
+  color: #f00;
+}
+
+/* Keyframes for Modal Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
 /* Responsive Design */
+@media (max-width: 1024px) {
+  .gallery-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
 @media (max-width: 768px) {
   .gallery-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -265,6 +239,14 @@ export default {
 @media (max-width: 480px) {
   .gallery-grid {
     grid-template-columns: 1fr;
+  }
+
+  .hero h1 {
+    font-size: 36px;
+  }
+
+  .hero p {
+    font-size: 16px;
   }
 }
 </style>

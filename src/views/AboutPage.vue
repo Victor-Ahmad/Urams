@@ -70,38 +70,45 @@ export default {
 </script>
 
 <style scoped>
+/* Global Fix for Horizontal Overflow */
+body {
+  overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
 /* General Styling */
 .about-page {
   color: #333;
   font-family: "Helvetica Neue", sans-serif;
+  overflow-x: hidden; /* Ensure no horizontal overflow on the entire page */
 }
 
 /* Hero Section */
 .hero {
-  background-image: url("@/assets/images/leading/about_us.jpg"); /* Leading image */
+  background-image: url("@/assets/images/leading/about_us.jpg");
   background-size: cover;
-  background-attachment: fixed;
   background-position: center;
   height: 70vh;
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
+  text-align: center;
+  width: 100%; /* Ensure the hero section never overflows */
 }
 
 .hero-overlay {
   background: rgba(0, 0, 0, 0.6); /* Dark overlay for contrast */
   padding: 50px;
-  text-align: center;
   color: #ffffff;
   width: 100%;
+  box-sizing: border-box; /* Ensure padding doesn't cause overflow */
 }
 
 .hero h1 {
   font-size: 60px;
   font-weight: bold;
   margin-bottom: 20px;
-  text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5); /* Add text shadow for emphasis */
+  text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
 }
 
 .hero p {
@@ -116,6 +123,8 @@ export default {
   max-width: 1200px;
   margin: 0 auto;
   padding: 80px 20px;
+  box-sizing: border-box; /* Ensure padding doesn't cause overflow */
+  overflow-x: hidden; /* Prevent any horizontal overflow */
 }
 
 .grid {
@@ -123,6 +132,7 @@ export default {
   grid-template-columns: 1fr 1fr;
   grid-gap: 50px;
   align-items: center;
+  overflow-x: hidden; /* Prevent grid overflow */
 }
 
 .col-text h2 {
@@ -142,16 +152,19 @@ export default {
   width: 100%;
   height: auto;
   border-radius: 10px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2); /* Shadow effect */
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  max-width: 100%; /* Ensure the image does not overflow */
 }
 
 /* Call-to-Action Section */
 .cta-section {
-  background-color: #007bff; /* Vibrant color for CTA */
+  background-color: #007bff;
   color: white;
   text-align: center;
   padding: 50px 20px;
   margin-top: 80px;
+  width: 100%; /* Ensure CTA section does not overflow */
+  box-sizing: border-box; /* Ensure padding doesn't cause overflow */
 }
 
 .cta-section h2 {
@@ -167,36 +180,124 @@ export default {
   border-radius: 50px;
   font-size: 18px;
   cursor: pointer;
-  box-shadow: 0 8px 15px rgba(46, 204, 113, 0.3); /* Button shadow */
+  box-shadow: 0 8px 15px rgba(46, 204, 113, 0.3);
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .cta-button:hover {
   background-color: #27ae60;
-  box-shadow: 0 12px 25px rgba(46, 204, 113, 0.5); /* Hover effect */
+  box-shadow: 0 12px 25px rgba(46, 204, 113, 0.5);
 }
 
 /* Responsive Design */
-@media (max-width: 768px) {
+
+/* Tablet View (768px to 1024px) */
+@media (max-width: 1024px) {
   .hero h1 {
-    font-size: 40px;
+    font-size: 48px;
   }
 
   .hero p {
-    font-size: 18px;
+    font-size: 20px;
   }
 
+  .cta-section h2 {
+    font-size: 32px;
+  }
+
+  .cta-button {
+    font-size: 16px;
+    padding: 12px 25px;
+  }
+
+  /* Stack the grid in two rows */
   .grid {
     grid-template-columns: 1fr;
+    grid-gap: 30px;
+    text-align: center;
   }
 
+  .col-image img {
+    margin: 0 auto;
+  }
+}
+
+/* Mobile View (768px and below) */
+@media (max-width: 768px) {
+  .hero {
+    height: 60vh;
+    padding: 20px;
+  }
+
+  .hero h1 {
+    font-size: 36px;
+  }
+
+  .hero p {
+    font-size: 16px;
+  }
+
+  .container {
+    padding: 60px 15px;
+  }
+
+  .col-text h2 {
+    font-size: 28px;
+  }
+
+  .col-text p {
+    font-size: 16px;
+  }
+
+  /* Adjust CTA Section */
   .cta-section h2 {
     font-size: 28px;
   }
 
   .cta-button {
     width: 100%;
-    max-width: 300px;
+    max-width: 250px;
+    font-size: 16px;
+  }
+}
+
+/* Small Mobile View (480px and below) */
+@media (max-width: 480px) {
+  .hero {
+    height: 50vh;
+    padding: 10px;
+  }
+
+  .hero h1 {
+    font-size: 28px;
+  }
+
+  .hero p {
+    font-size: 14px;
+  }
+
+  .container {
+    padding: 40px 10px;
+  }
+
+  .col-text h2 {
+    font-size: 24px;
+  }
+
+  .col-text p {
+    font-size: 14px;
+  }
+
+  /* Adjust CTA Section */
+  .cta-section h2 {
+    font-size: 24px;
+  }
+
+  .cta-button {
+    width: 100%;
+    max-width: 220px;
+    font-size: 14px;
+    padding: 10px 20px;
   }
 }
 </style>

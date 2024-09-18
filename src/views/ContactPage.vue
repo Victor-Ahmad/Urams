@@ -67,22 +67,23 @@
     </div>
 
     <!-- Contact Information Section -->
-    <div class="contact-info">
-      <div class="container">
-        <div class="info-grid">
-          <div class="info-item" data-aos="fade-up">
+    <div class="contact-info" data-aos="fade-up">
+      <div class="contact-info-container">
+        <h2>Contact Information</h2>
+        <ul class="contact-details">
+          <li>
             <i class="fas fa-phone"></i>
-            <p><strong>Phone:</strong> +123 456 7890</p>
-          </div>
-          <div class="info-item" data-aos="fade-up" data-aos-delay="100">
+            <span><strong>Phone:</strong> +31 6 85011945</span>
+          </li>
+          <li>
             <i class="fas fa-envelope"></i>
-            <p><strong>Email:</strong> info@example.com</p>
-          </div>
-          <div class="info-item" data-aos="fade-up" data-aos-delay="200">
+            <span><strong>Email:</strong> info@example.com</span>
+          </li>
+          <li>
             <i class="fas fa-map-marker-alt"></i>
-            <p><strong>Address:</strong> 123 Main St, City, Country</p>
-          </div>
-        </div>
+            <span><strong>Address:</strong> 123 Main St, City, Country</span>
+          </li>
+        </ul>
       </div>
     </div>
 
@@ -135,7 +136,7 @@ export default {
 /* General Page Styling */
 .contact-page {
   color: #333;
-  font-family: "Arial", sans-serif;
+  font-family: "Helvetica Neue", sans-serif;
 }
 
 /* Hero Section */
@@ -143,7 +144,8 @@ export default {
   background-image: url("@/assets/images/leading/contact_us.jpg");
   background-size: cover;
   background-position: center;
-  height: 55vh;
+  background-attachment: fixed;
+  height: 60vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -152,15 +154,23 @@ export default {
 }
 
 .hero-overlay {
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(
+    0,
+    0,
+    0,
+    0.6
+  ); /* Dark overlay for better text contrast */
   padding: 50px;
   text-align: center;
   color: white;
+  width: 100%;
 }
 
 .hero h1 {
   font-size: 56px;
   font-weight: bold;
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3); /* Text shadow for emphasis */
+  margin-bottom: 20px;
 }
 
 .hero p {
@@ -187,8 +197,10 @@ export default {
   font-size: 40px;
   text-align: center;
   margin-bottom: 60px;
+  color: #007bff;
 }
 
+/* Contact Form */
 .contact-form {
   max-width: 700px;
   margin: 0 auto;
@@ -245,44 +257,43 @@ textarea {
   transform: translateY(-3px);
 }
 
-/* Updated Contact Information Section */
+/* Contact Information Section */
 .contact-info {
   background-color: #f8f9fb;
-  padding: 60px 0;
-}
-
-.info-grid {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 40px;
-}
-
-.info-item {
-  background: white;
-  padding: 30px;
-  border-radius: 15px;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  padding: 60px 20px;
   text-align: center;
-  width: 100%;
-  max-width: 300px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.info-item:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+.contact-info-container {
+  max-width: 800px;
+  margin: 0 auto;
 }
 
-.info-item i {
+.contact-info h2 {
   font-size: 36px;
-  color: #007bff;
-  margin-bottom: 10px;
+  margin-bottom: 40px;
+  color: #2c3e50;
 }
 
-.info-item p {
+.contact-details {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.contact-details li {
+  display: flex;
+  align-items: center;
   font-size: 18px;
   color: #555;
+  margin-bottom: 20px;
+  justify-content: center;
+}
+
+.contact-details i {
+  font-size: 24px;
+  color: #007bff;
+  margin-right: 15px;
 }
 
 /* Google Maps Embed */
@@ -292,11 +303,6 @@ textarea {
 
 /* Responsive Design */
 @media (max-width: 768px) {
-  .info-grid {
-    flex-direction: column;
-    align-items: center;
-  }
-
   .contact-form {
     max-width: 100%;
   }
@@ -306,7 +312,19 @@ textarea {
   }
 
   .hero p {
-    font-size: 20px;
+    font-size: 18px;
+  }
+
+  .contact-info h2 {
+    font-size: 30px;
+  }
+
+  .contact-details li {
+    flex-direction: column;
+  }
+
+  .contact-details i {
+    margin-bottom: 10px;
   }
 }
 </style>

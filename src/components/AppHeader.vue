@@ -3,7 +3,7 @@
     <div class="container flex justify-between items-center">
       <!-- Logo -->
       <div class="logo">
-        <img :src="logo" alt="Urams Logo" />
+        <router-link to="/"> <img :src="logo" alt="Urams Logo" /></router-link>
       </div>
 
       <!-- Navigation Links -->

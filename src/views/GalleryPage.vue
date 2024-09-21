@@ -3,10 +3,9 @@
     <!-- Hero Section -->
     <div class="hero">
       <div class="hero-overlay">
-        <h1>Our Work</h1>
+        <h1>{{ $t("gallery.title") }}</h1>
         <p>
-          Explore some of our completed projects and see the quality of our
-          work.
+          {{ $t("gallery.subtitle") }}
         </p>
       </div>
     </div>
@@ -22,12 +21,12 @@
         <div class="gallery-image-wrapper">
           <img
             :src="item.image"
-            :alt="'Project ' + (index + 1)"
+            :alt="$t('gallery.projectAlt', { index: index + 1 })"
             loading="lazy"
           />
         </div>
         <div class="overlay">
-          <p>{{ "Project " + (index + 1) }}</p>
+          <p>{{ $t("gallery.projectLabel", { index: index + 1 }) }}</p>
         </div>
       </div>
     </div>
@@ -38,7 +37,7 @@
         <div class="modal-content">
           <img
             :src="selectedImage.image"
-            :alt="'Project ' + selectedImageIndex"
+            :alt="$t('gallery.projectAlt', { index: selectedImageIndex })"
             class="modal-image"
           />
           <span class="close-icon" @click="closeModal">&times;</span>
@@ -67,19 +66,16 @@ export default {
     openModal(item) {
       this.selectedImage = item;
       this.selectedImageIndex = this.gallery.indexOf(item) + 1;
-      // Disable scrolling when modal is open
       document.body.style.overflow = "hidden";
     },
     closeModal() {
       this.selectedImage = null;
       this.selectedImageIndex = null;
-      // Enable scrolling when modal is closed
       document.body.style.overflow = "";
     },
     scrollToTop() {
-      // Smoothly scrolls to the very top of the document (including scroll restoration)
       window.scrollTo({
-        top: 0, // Ensures scrolling to the top of the document
+        top: 0,
         behavior: "smooth",
       });
     },

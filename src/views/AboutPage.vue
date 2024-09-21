@@ -3,9 +3,9 @@
     <!-- Hero Section -->
     <div class="hero">
       <div class="hero-overlay">
-        <h1 data-aos="fade-down">About Us</h1>
+        <h1 data-aos="fade-down">{{ $t("aboutUs.title") }}</h1>
         <p data-aos="fade-up" data-aos-delay="200">
-          Committed to Quality and Customer Satisfaction
+          {{ $t("aboutUs.subtitle") }}
         </p>
       </div>
     </div>
@@ -15,18 +15,15 @@
       <div class="grid">
         <!-- Text Column -->
         <div class="col-text" data-aos="fade-right">
-          <h2>Who We Are</h2>
+          <h2>{{ $t("aboutUs.whoWeAre.title") }}</h2>
           <p>
-            With years of experience in bathroom renovations, we pride ourselves
-            on delivering high-quality craftsmanship tailored to your needs.
+            {{ $t("aboutUs.whoWeAre.description1") }}
           </p>
           <p>
-            Our team of experts ensures every project is completed on time and
-            within budget, using only the best materials.
+            {{ $t("aboutUs.whoWeAre.description2") }}
           </p>
           <p>
-            We would love to know more about your needs, so don't hesitate to
-            contact us.
+            {{ $t("aboutUs.whoWeAre.description3") }}
           </p>
         </div>
 
@@ -39,9 +36,11 @@
 
     <!-- Call to Action Section -->
     <div class="cta-section" data-aos="zoom-in">
-      <h2>Learn More About Our Services</h2>
+      <h2>{{ $t("aboutUs.cta.title") }}</h2>
       <router-link to="/services">
-        <button class="cta-button primary">Explore Our Services</button>
+        <button class="cta-button primary">
+          {{ $t("aboutUs.cta.buttonText") }}
+        </button>
       </router-link>
     </div>
   </section>
@@ -69,9 +68,8 @@ export default {
   },
   methods: {
     scrollToTop() {
-      // Smoothly scrolls to the very top of the document (including scroll restoration)
       window.scrollTo({
-        top: 0, // Ensures scrolling to the top of the document
+        top: 0,
         behavior: "smooth",
       });
     },

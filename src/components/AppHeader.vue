@@ -10,18 +10,41 @@
       <nav class="nav">
         <!-- Desktop Nav Links (hidden on mobile) -->
         <ul class="nav-links flex space-x-6 items-center" v-if="!isMobile">
-          <li><router-link to="/">Home</router-link></li>
-          <li><router-link to="/about">About Us</router-link></li>
-          <li><router-link to="/services">Services</router-link></li>
-          <li><router-link to="/process">Our Process</router-link></li>
-          <li><router-link to="/gallery">Gallery</router-link></li>
-          <li><router-link to="/contact">Contact</router-link></li>
+          <li>
+            <router-link to="/">{{ $t("header.nav.home") }}</router-link>
+          </li>
+          <li>
+            <router-link to="/about">{{ $t("header.nav.about") }}</router-link>
+          </li>
+          <li>
+            <router-link to="/services">{{
+              $t("header.nav.services")
+            }}</router-link>
+          </li>
+          <li>
+            <router-link to="/process">{{
+              $t("header.nav.process")
+            }}</router-link>
+          </li>
+          <li>
+            <router-link to="/gallery">{{
+              $t("header.nav.gallery")
+            }}</router-link>
+          </li>
+          <li>
+            <router-link to="/contact">{{
+              $t("header.nav.contact")
+            }}</router-link>
+          </li>
 
           <!-- CTA Button Added to Desktop Navigation -->
           <li class="cta-btn">
             <router-link to="/contact">
-              <button class="cta-button">Request Your Free Consultation</button>
+              <button class="cta-button">{{ $t("header.cta") }}</button>
             </router-link>
+          </li>
+          <li>
+            <LanguageSwitcher />
           </li>
         </ul>
 
@@ -35,40 +58,44 @@
         <!-- Mobile Dropdown (visible when the menu is open on mobile) -->
         <ul class="mobile-nav-links" v-if="isMobileMenuOpen">
           <li>
-            <router-link to="/" @click="toggleMobileMenu">Home</router-link>
+            <router-link to="/" @click="toggleMobileMenu">{{
+              $t("header.nav.home")
+            }}</router-link>
           </li>
           <li>
-            <router-link to="/about" @click="toggleMobileMenu"
-              >About Us</router-link
-            >
+            <router-link to="/about" @click="toggleMobileMenu">{{
+              $t("header.nav.about")
+            }}</router-link>
           </li>
           <li>
-            <router-link to="/services" @click="toggleMobileMenu"
-              >Services</router-link
-            >
+            <router-link to="/services" @click="toggleMobileMenu">{{
+              $t("header.nav.services")
+            }}</router-link>
           </li>
           <li>
-            <router-link to="/process" @click="toggleMobileMenu"
-              >Our Process</router-link
-            >
+            <router-link to="/process" @click="toggleMobileMenu">{{
+              $t("header.nav.process")
+            }}</router-link>
           </li>
           <li>
-            <router-link to="/gallery" @click="toggleMobileMenu"
-              >Gallery</router-link
-            >
+            <router-link to="/gallery" @click="toggleMobileMenu">{{
+              $t("header.nav.gallery")
+            }}</router-link>
           </li>
           <li>
-            <router-link to="/contact" @click="toggleMobileMenu"
-              >Contact</router-link
-            >
+            <router-link to="/contact" @click="toggleMobileMenu">{{
+              $t("header.nav.contact")
+            }}</router-link>
           </li>
+
           <!-- CTA Button inside Mobile Menu -->
           <li class="mobile-cta-btn">
             <router-link to="/contact" @click="toggleMobileMenu">
-              <button class="cta-button">
-                Request Your Free Consultation Now
-              </button>
+              <button class="cta-button">{{ $t("header.cta") }}</button>
             </router-link>
+          </li>
+          <li>
+            <LanguageSwitcher />
           </li>
         </ul>
       </nav>
@@ -78,9 +105,13 @@
 
 <script>
 import logo from "@/assets/images/logo.png"; // Import the logo image
+import LanguageSwitcher from "@/components/LanguageSwitcher.vue"; // Import the component
 
 export default {
   name: "AppHeader",
+  components: {
+    LanguageSwitcher,
+  },
   data() {
     return {
       logo,
@@ -89,26 +120,20 @@ export default {
     };
   },
   mounted() {
-    // Check screen size when the component is mounted
     this.checkScreenSize();
-    // Add a resize event listener to update the mobile state
     window.addEventListener("resize", this.checkScreenSize);
   },
   beforeUnmount() {
-    // Remove the resize event listener when the component is destroyed
     window.removeEventListener("resize", this.checkScreenSize);
   },
   methods: {
     checkScreenSize() {
-      // Set isMobile to true if the screen width is less than 768px
       this.isMobile = window.innerWidth < 768;
       if (!this.isMobile) {
-        // Close the mobile menu when switching to desktop
         this.isMobileMenuOpen = false;
       }
     },
     toggleMobileMenu() {
-      // Toggle the mobile menu state
       this.isMobileMenuOpen = !this.isMobileMenuOpen;
     },
   },
@@ -282,7 +307,7 @@ export default {
 
   /* Reduce hamburger menu size on mobile */
   .hamburger-menu .bar {
-    width: 20px; /* Reduce width */
+    width: 25px; /* Reduce width */
     height: 2px; /* Reduce height */
   }
 }

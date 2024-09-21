@@ -3,16 +3,16 @@
     <!-- Hero Section -->
     <div class="hero">
       <div class="hero-overlay">
-        <h1 data-aos="fade-down">Get in Touch</h1>
+        <h1 data-aos="fade-down">{{ $t("contactUs.hero.title") }}</h1>
         <p data-aos="fade-up" data-aos-delay="200">
-          Have questions or ready to start your project? Contact us today.
+          {{ $t("contactUs.hero.subtitle") }}
         </p>
       </div>
     </div>
 
     <!-- Contact Form Section -->
     <div class="container contact-form-section">
-      <h2 data-aos="fade-up">Contact Us</h2>
+      <h2 data-aos="fade-up">{{ $t("contactUs.form.title") }}</h2>
       <form
         @submit.prevent="submitForm"
         class="contact-form"
@@ -20,68 +20,79 @@
         data-aos-delay="100"
       >
         <div class="form-group">
-          <label for="name">Name</label>
+          <label for="name">{{ $t("contactUs.form.labels.name") }}</label>
           <input
             type="text"
             v-model="formData.name"
             id="name"
-            placeholder="Your name"
+            :placeholder="$t('contactUs.form.placeholders.name')"
             required
           />
         </div>
 
         <div class="form-group">
-          <label for="email">Email</label>
+          <label for="email">{{ $t("contactUs.form.labels.email") }}</label>
           <input
             type="email"
             v-model="formData.email"
             id="email"
-            placeholder="Your email"
+            :placeholder="$t('contactUs.form.placeholders.email')"
             required
           />
         </div>
 
         <div class="form-group">
-          <label for="phone">Phone</label>
+          <label for="phone">{{ $t("contactUs.form.labels.phone") }}</label>
           <input
             type="tel"
             v-model="formData.phone"
             id="phone"
-            placeholder="Your phone number"
+            :placeholder="$t('contactUs.form.placeholders.phone')"
             required
           />
         </div>
 
         <div class="form-group">
-          <label for="message">Message</label>
+          <label for="message">{{ $t("contactUs.form.labels.message") }}</label>
           <textarea
             v-model="formData.message"
             id="message"
-            placeholder="Your message"
+            :placeholder="$t('contactUs.form.placeholders.message')"
             required
           ></textarea>
         </div>
 
-        <button type="submit" class="submit-button">Submit</button>
+        <button type="submit" class="submit-button">
+          {{ $t("contactUs.form.submitButton") }}
+        </button>
       </form>
     </div>
 
     <!-- Contact Information Section -->
     <div class="contact-info" data-aos="fade-up">
       <div class="contact-info-container">
-        <h2>Contact Information</h2>
+        <h2>{{ $t("contactUs.info.title") }}</h2>
         <ul class="contact-details">
           <li>
             <i class="fas fa-phone"></i>
-            <span><strong>Phone:</strong> 0611410968</span>
+            <span
+              ><strong>{{ $t("contactUs.info.phoneLabel") }}:</strong>
+              0611410968</span
+            >
           </li>
           <li>
             <i class="fas fa-envelope"></i>
-            <span><strong>Email:</strong> info@urams.com</span>
+            <span
+              ><strong>{{ $t("contactUs.info.emailLabel") }}:</strong>
+              info@urams.com</span
+            >
           </li>
           <li>
             <i class="fas fa-map-marker-alt"></i>
-            <span><strong>Address:</strong>3162PL, Saffierlaan 214</span>
+            <span
+              ><strong>{{ $t("contactUs.info.addressLabel") }}:</strong> 3162PL,
+              Saffierlaan 214</span
+            >
           </li>
         </ul>
       </div>
@@ -127,13 +138,14 @@ export default {
   },
   methods: {
     submitForm() {
-      alert(`Thank you, ${this.formData.name}, for contacting us!`);
+      alert(
+        this.$t("contactUs.form.alertMessage", { name: this.formData.name })
+      );
     },
 
     scrollToTop() {
-      // Smoothly scrolls to the very top of the document (including scroll restoration)
       window.scrollTo({
-        top: 0, // Ensures scrolling to the top of the document
+        top: 0,
         behavior: "smooth",
       });
     },

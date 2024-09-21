@@ -3,16 +3,16 @@
     <!-- Hero Section -->
     <div class="hero">
       <div class="hero-overlay">
-        <h1 data-aos="fade-down">Our Services</h1>
+        <h1 data-aos="fade-down">{{ $t("services.hero.title") }}</h1>
         <p data-aos="fade-up" data-aos-delay="200">
-          Comprehensive solutions for all your bathroom renovation needs
+          {{ $t("services.hero.subtitle") }}
         </p>
       </div>
     </div>
 
     <!-- Services Section -->
     <div class="container services">
-      <h2 data-aos="fade-up">What We Offer</h2>
+      <h2 data-aos="fade-up">{{ $t("services.sectionTitle") }}</h2>
       <div class="service-grid">
         <div
           class="service-card"
@@ -24,8 +24,8 @@
           <div class="icon">
             <img :src="service.icon" :alt="service.title" />
           </div>
-          <h3>{{ service.title }}</h3>
-          <p>{{ service.description }}</p>
+          <h3>{{ $t(`services.items.${index + 1}.title`) }}</h3>
+          <p>{{ $t(`services.items.${index + 1}.description`) }}</p>
         </div>
       </div>
     </div>
@@ -55,9 +55,8 @@ export default {
   },
   methods: {
     scrollToTop() {
-      // Smoothly scrolls to the very top of the document (including scroll restoration)
       window.scrollTo({
-        top: 0, // Ensures scrolling to the top of the document
+        top: 0,
         behavior: "smooth",
       });
     },
@@ -66,39 +65,38 @@ export default {
     return {
       services: [
         {
-          title: "Plumbing",
-          description: "Expert installation and repair of pipes and fixtures.",
+          title: this.$t("services.items.1.title"),
+          description: this.$t("services.items.1.description"),
           icon: plumbingIcon,
         },
         {
-          title: "Wall Preparation",
-          description: "Wall leveling and construction of new walls if needed.",
+          title: this.$t("services.items.2.title"),
+          description: this.$t("services.items.2.description"),
           icon: wallPreparationIcon,
         },
         {
-          title: "Tiling",
-          description: "High-quality tiling services for walls and floors.",
+          title: this.$t("services.items.3.title"),
+          description: this.$t("services.items.3.description"),
           icon: tilingIcon,
         },
         {
-          title: "Silicone Application",
-          description: "Application of silicone for sealing and protection.",
+          title: this.$t("services.items.4.title"),
+          description: this.$t("services.items.4.description"),
           icon: siliconeApplicationIcon,
         },
         {
-          title: "Ceiling Painting",
-          description: "Professional ceiling painting and finishing.",
+          title: this.$t("services.items.5.title"),
+          description: this.$t("services.items.5.description"),
           icon: ceilingPaintingIcon,
         },
         {
-          title: "Bathroom Fixtures",
-          description:
-            "Installation of shower cabins, mirrors, sinks, and cabinets.",
+          title: this.$t("services.items.6.title"),
+          description: this.$t("services.items.6.description"),
           icon: bathroomFixturesIcon,
         },
         {
-          title: "Full Bathroom Renovation",
-          description: "Complete renovation services from start to finish.",
+          title: this.$t("services.items.7.title"),
+          description: this.$t("services.items.7.description"),
           icon: fullRenovationIcon,
         },
       ],

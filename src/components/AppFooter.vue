@@ -15,7 +15,7 @@
             alt="WhatsApp"
             class="whatsapp-icon"
           />
-          WhatsApp
+          {{ $t("footer.contact.whatsapp") }}
         </a>
       </div>
 
@@ -65,6 +65,8 @@ export default {
 /* Contact Info Styling */
 .contact-info {
   display: flex;
+  justify-content: center;
+  align-items: center;
   gap: 20px; /* Spacing between items */
 }
 
@@ -111,6 +113,7 @@ export default {
 /* Mobile Responsive */
 @media (max-width: 768px) {
   .container {
+    max-width: 80%;
     flex-direction: column;
     gap: 20px;
   }

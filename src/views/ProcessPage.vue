@@ -3,16 +3,16 @@
     <!-- Hero Section -->
     <div class="hero">
       <div class="hero-overlay">
-        <h1 data-aos="fade-down">Our Process</h1>
+        <h1 data-aos="fade-down">{{ $t("process.hero.title") }}</h1>
         <p data-aos="fade-up" data-aos-delay="200">
-          How we ensure a perfect bathroom renovation
+          {{ $t("process.hero.subtitle") }}
         </p>
       </div>
     </div>
 
     <!-- Steps in Custom Pattern -->
     <div class="container steps-section">
-      <h2 data-aos="fade-up">Our Step-by-Step Process</h2>
+      <h2 data-aos="fade-up">{{ $t("process.steps.title") }}</h2>
       <div class="steps-container">
         <!-- Row 1 -->
         <div class="step-row">
@@ -27,8 +27,14 @@
                   <img :src="row1[index].icon" :alt="row1[index].title" />
                 </div>
                 <div class="step-number">{{ row1[index].number }}</div>
-                <h3>{{ row1[index].title }}</h3>
-                <p>{{ row1[index].description }}</p>
+                <h3>
+                  {{ $t(`process.steps.items.${row1[index].number}.title`) }}
+                </h3>
+                <p>
+                  {{
+                    $t(`process.steps.items.${row1[index].number}.description`)
+                  }}
+                </p>
               </div>
             </div>
             <div v-else class="empty-slot"></div>
@@ -48,27 +54,115 @@
                   <img :src="row2[index].icon" :alt="row2[index].title" />
                 </div>
                 <div class="step-number">{{ row2[index].number }}</div>
-                <h3>{{ row2[index].title }}</h3>
-                <p>{{ row2[index].description }}</p>
+                <h3>
+                  {{ $t(`process.steps.items.${row2[index].number}.title`) }}
+                </h3>
+                <p>
+                  {{
+                    $t(`process.steps.items.${row2[index].number}.description`)
+                  }}
+                </p>
               </div>
             </div>
             <div v-else class="empty-slot"></div>
           </div>
         </div>
-
-        <!-- Arrows -->
-        <div class="arrows">
-          <div
-            v-for="(arrow, index) in arrows"
-            :key="'arrow-' + index"
-            :class="['arrow', arrow.class]"
-            :style="getArrowStyle(index)"
-          ></div>
-        </div>
       </div>
     </div>
   </section>
 </template>
+
+<script>
+import AOS from "aos";
+import "aos/dist/aos.css";
+
+import step1 from "@/assets/images/steps/step_1.png";
+import step2 from "@/assets/images/steps/step_2.png";
+import step3 from "@/assets/images/steps/step_3.png";
+import step4 from "@/assets/images/steps/step_4.png";
+import step5 from "@/assets/images/steps/step_5.png";
+
+export default {
+  name: "ProcessPage",
+  mounted() {
+    AOS.init({
+      duration: 1000,
+      easing: "ease-in-out",
+      once: true,
+    });
+    this.scrollToTop();
+  },
+  methods: {
+    scrollToTop() {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+    },
+  },
+  data() {
+    return {
+      steps: [
+        {
+          number: 1,
+          icon: step1,
+          title: this.$t("process.steps.items.1.title"),
+          description: this.$t("process.steps.items.1.description"),
+        },
+        {
+          number: 2,
+          icon: step2,
+          title: this.$t("process.steps.items.2.title"),
+          description: this.$t("process.steps.items.2.description"),
+        },
+        {
+          number: 3,
+          icon: step3,
+          title: this.$t("process.steps.items.3.title"),
+          description: this.$t("process.steps.items.3.description"),
+        },
+        {
+          number: 4,
+          icon: step4,
+          title: this.$t("process.steps.items.4.title"),
+          description: this.$t("process.steps.items.4.description"),
+        },
+        {
+          number: 5,
+          icon: step5,
+          title: this.$t("process.steps.items.5.title"),
+          description: this.$t("process.steps.items.5.description"),
+        },
+      ],
+    };
+  },
+  computed: {
+    rowLength() {
+      return 5;
+    },
+    row1() {
+      const row = new Array(this.rowLength).fill(null);
+      this.steps.forEach((step) => {
+        if (step.number % 2 === 1) {
+          const position = step.number - 1;
+          row[position] = step;
+        }
+      });
+      return row;
+    },
+    row2() {
+      const row = new Array(this.rowLength).fill(null);
+      this.steps.forEach((step) => {
+        if (step.number % 2 === 0) {
+          const position = step.number - 1;
+          row[position] = step;
+        }
+      });
+      return row;
+    },
+  },
+};
+</script>
 
 <style scoped>
 /* General Page Styling */
@@ -276,99 +370,3 @@
   }
 }
 </style>
-
-<script>
-import AOS from "aos";
-import "aos/dist/aos.css";
-
-import step1 from "@/assets/images/steps/step_1.png";
-import step2 from "@/assets/images/steps/step_2.png";
-import step3 from "@/assets/images/steps/step_3.png";
-import step4 from "@/assets/images/steps/step_4.png";
-import step5 from "@/assets/images/steps/step_5.png";
-
-export default {
-  name: "ProcessPage",
-  mounted() {
-    AOS.init({
-      duration: 1000,
-      easing: "ease-in-out",
-      once: true,
-    });
-    this.scrollToTop();
-  },
-  methods: {
-    scrollToTop() {
-      // Smoothly scrolls to the very top of the document (including scroll restoration)
-      window.scrollTo({
-        top: 0, // Ensures scrolling to the top of the document
-        behavior: "smooth",
-      });
-    },
-  },
-  data() {
-    return {
-      steps: [
-        {
-          number: 1,
-          icon: step1,
-          title: "Free Consultation",
-          description: "Discuss your needs and expectations with our experts.",
-        },
-        {
-          number: 2,
-          icon: step2,
-          title: "Site Visit",
-          description:
-            "We visit your location to assess the space, equipment, and work required.",
-        },
-        {
-          number: 3,
-          icon: step3,
-          title: "Quotation & Planning",
-          description:
-            "Receive a detailed quote and plan outlining all steps and timelines.",
-        },
-        {
-          number: 4,
-          icon: step4,
-          title: "Approval",
-          description: "Review and approve the plan and quotation.",
-        },
-        {
-          number: 5,
-          icon: step5,
-          title: "Installation & Delivery",
-          description:
-            "Our team executes the project, delivering a fully renovated bathroom.",
-        },
-      ],
-    };
-  },
-  computed: {
-    rowLength() {
-      return 5;
-    },
-    row1() {
-      const row = new Array(this.rowLength).fill(null);
-      this.steps.forEach((step) => {
-        if (step.number % 2 === 1) {
-          const position = step.number - 1;
-          row[position] = step;
-        }
-      });
-      return row;
-    },
-    row2() {
-      const row = new Array(this.rowLength).fill(null);
-      this.steps.forEach((step) => {
-        if (step.number % 2 === 0) {
-          const position = step.number - 1;
-          row[position] = step;
-        }
-      });
-      return row;
-    },
-  },
-};
-</script>

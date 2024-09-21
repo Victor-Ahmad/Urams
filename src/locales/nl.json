@@ -1,0 +1,140 @@
+{
+    "aboutUs": {
+      "title": "Over Ons",
+      "subtitle": "Toegewijd aan Kwaliteit en Klanttevredenheid",
+      "whoWeAre": {
+        "title": "Wie We Zijn",
+        "description1": "Met jarenlange ervaring in badkamerrenovaties, zijn we er trots op hoogwaardig vakmanschap te leveren dat is afgestemd op uw behoeften.",
+        "description2": "Ons team van experts zorgt ervoor dat elk project op tijd en binnen het budget wordt voltooid, met alleen de beste materialen.",
+        "description3": "We horen graag meer over uw wensen, dus aarzel niet om contact met ons op te nemen."
+      },
+      "cta": {
+        "title": "Meer te Weten Komen Over Onze Diensten",
+        "buttonText": "Ontdek Onze Diensten"
+      }
+    }
+    ,
+    
+        "contactUs": {
+          "hero": {
+            "title": "Neem Contact Op",
+            "subtitle": "Heeft u vragen of bent u klaar om uw project te starten? Neem vandaag nog contact met ons op."
+          },
+          "form": {
+            "title": "Contacteer Ons",
+            "labels": {
+              "name": "Naam",
+              "email": "E-mail",
+              "phone": "Telefoon",
+              "message": "Bericht"
+            },
+            "placeholders": {
+              "name": "Uw naam",
+              "email": "Uw e-mail",
+              "phone": "Uw telefoonnummer",
+              "message": "Uw bericht"
+            },
+            "submitButton": "Verzenden",
+            "alertMessage": "Bedankt, {name}, dat u contact met ons heeft opgenomen!"
+          },
+          "info": {
+            "title": "Contactinformatie",
+            "phoneLabel": "Telefoon",
+            "emailLabel": "E-mail",
+            "addressLabel": "Adres"
+          }
+        
+      },
+      "gallery": {
+        "title": "Ons Werk",
+        "subtitle": "Bekijk enkele van onze afgeronde projecten en zie de kwaliteit van ons werk.",
+        "projectLabel": "Project {index}",
+        "projectAlt": "Project {index}"
+      },
+      "process": {
+        "hero": {
+          "title": "Ons Proces",
+          "subtitle": "Hoe we zorgen voor een perfecte badkamerrenovatie"
+        },
+        "steps": {
+          "title": "Ons Stapsgewijze Proces",
+          "items": {
+            "1": {
+              "title": "Gratis Consult",
+              "description": "Bespreek uw behoeften en verwachtingen met onze experts."
+            },
+            "2": {
+              "title": "Plaatsbezoek",
+              "description": "We bezoeken uw locatie om de ruimte, apparatuur en benodigde werkzaamheden te beoordelen."
+            },
+            "3": {
+              "title": "Offerte en Planning",
+              "description": "Ontvang een gedetailleerde offerte en planning met alle stappen en tijdlijnen."
+            },
+            "4": {
+              "title": "Goedkeuring",
+              "description": "Beoordeel en keur het plan en de offerte goed."
+            },
+            "5": {
+              "title": "Installatie en Oplevering",
+              "description": "Ons team voert het project uit en levert een volledig gerenoveerde badkamer op."
+            }
+          }
+        }
+      },
+      "services": {
+        "hero": {
+          "title": "Onze Diensten",
+          "subtitle": "Uitgebreide oplossingen voor al uw badkamerrenovatiebehoeften"
+        },
+        "sectionTitle": "Wat We Aanbieden",
+        "items": {
+          "1": {
+            "title": "Loodgieterij",
+            "description": "Deskundige installatie en reparatie van leidingen en armaturen."
+          },
+          "2": {
+            "title": "Wandvoorbereiding",
+            "description": "Wandegaliseering en bouw van nieuwe muren indien nodig."
+          },
+          "3": {
+            "title": "Tegelen",
+            "description": "Hoogwaardige tegelservices voor muren en vloeren."
+          },
+          "4": {
+            "title": "Siliconentoepassing",
+            "description": "Aanbrengen van siliconen voor afdichting en bescherming."
+          },
+          "5": {
+            "title": "Plafondschilderen",
+            "description": "Professioneel schilderen en afwerken van plafonds."
+          },
+          "6": {
+            "title": "Badkamerinrichting",
+            "description": "Installatie van douchecabines, spiegels, wastafels en kasten."
+          },
+          "7": {
+            "title": "Volledige Badkamerrenovatie",
+            "description": "Complete renovatieservice van begin tot eind."
+          }
+        }
+      },
+      "header": {
+        "nav": {
+          "home": "Home",
+          "about": "Over Ons",
+          "services": "Diensten",
+          "process": "Ons Proces",
+          "gallery": "Galerij",
+          "contact": "Contact"
+        },
+        "cta": "Vraag Uw Gratis Consult Aan"
+      },
+      "footer": {
+        "contact": {
+          "whatsapp": "WhatsApp"
+        }
+      }
+
+  }
+  

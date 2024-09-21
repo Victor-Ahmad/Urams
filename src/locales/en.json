@@ -1,0 +1,141 @@
+{
+    "aboutUs": {
+      "title": "About Us",
+      "subtitle": "Committed to Quality and Customer Satisfaction",
+      "whoWeAre": {
+        "title": "Who We Are",
+        "description1": "With years of experience in bathroom renovations, we pride ourselves on delivering high-quality craftsmanship tailored to your needs.",
+        "description2": "Our team of experts ensures every project is completed on time and within budget, using only the best materials.",
+        "description3": "We would love to know more about your needs, so don't hesitate to contact us."
+      },
+      "cta": {
+        "title": "Learn More About Our Services",
+        "buttonText": "Explore Our Services"
+      }
+    },
+    "contactUs": {
+        "hero": {
+          "title": "Get in Touch",
+          "subtitle": "Have questions or ready to start your project? Contact us today."
+        },
+        "form": {
+          "title": "Contact Us",
+          "labels": {
+            "name": "Name",
+            "email": "Email",
+            "phone": "Phone",
+            "message": "Message"
+          },
+          "placeholders": {
+            "name": "Your name",
+            "email": "Your email",
+            "phone": "Your phone number",
+            "message": "Your message"
+          },
+          "submitButton": "Submit",
+          "alertMessage": "Thank you, {name}, for contacting us!"
+        },
+        "info": {
+          "title": "Contact Information",
+          "phoneLabel": "Phone",
+          "emailLabel": "Email",
+          "addressLabel": "Address"
+        }
+      },
+
+
+      
+        "gallery": {
+          "title": "Our Work",
+          "subtitle": "Explore some of our completed projects and see the quality of our work.",
+          "projectLabel": "Project {index}",
+          "projectAlt": "Project {index}"
+        },
+        "process": {
+            "hero": {
+              "title": "Our Process",
+              "subtitle": "How we ensure a perfect bathroom renovation"
+            },
+            "steps": {
+              "title": "Our Step-by-Step Process",
+              "items": {
+                "1": {
+                  "title": "Free Consultation",
+                  "description": "Discuss your needs and expectations with our experts."
+                },
+                "2": {
+                  "title": "Site Visit",
+                  "description": "We visit your location to assess the space, equipment, and work required."
+                },
+                "3": {
+                  "title": "Quotation & Planning",
+                  "description": "Receive a detailed quote and plan outlining all steps and timelines."
+                },
+                "4": {
+                  "title": "Approval",
+                  "description": "Review and approve the plan and quotation."
+                },
+                "5": {
+                  "title": "Installation & Delivery",
+                  "description": "Our team executes the project, delivering a fully renovated bathroom."
+                }
+              }
+            }
+          },
+          "services": {
+            "hero": {
+              "title": "Our Services",
+              "subtitle": "Comprehensive solutions for all your bathroom renovation needs"
+            },
+            "sectionTitle": "What We Offer",
+            "items": {
+              "1": {
+                "title": "Plumbing",
+                "description": "Expert installation and repair of pipes and fixtures."
+              },
+              "2": {
+                "title": "Wall Preparation",
+                "description": "Wall leveling and construction of new walls if needed."
+              },
+              "3": {
+                "title": "Tiling",
+                "description": "High-quality tiling services for walls and floors."
+              },
+              "4": {
+                "title": "Silicone Application",
+                "description": "Application of silicone for sealing and protection."
+              },
+              "5": {
+                "title": "Ceiling Painting",
+                "description": "Professional ceiling painting and finishing."
+              },
+              "6": {
+                "title": "Bathroom Fixtures",
+                "description": "Installation of shower cabins, mirrors, sinks, and cabinets."
+              },
+              "7": {
+                "title": "Full Bathroom Renovation",
+                "description": "Complete renovation services from start to finish."
+              }
+            }
+          },
+          "header": {
+            "nav": {
+              "home": "Home",
+              "about": "About Us",
+              "services": "Services",
+              "process": "Our Process",
+              "gallery": "Gallery",
+              "contact": "Contact"
+            },
+            "cta": "Request Your Free Consultation"
+          },
+          "footer": {
+    "contact": {
+      "whatsapp": "WhatsApp"
+    }
+  }
+      
+      
+  }
+  

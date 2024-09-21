@@ -9,13 +9,20 @@
       <!-- Navigation Links -->
       <nav class="nav">
         <!-- Desktop Nav Links (hidden on mobile) -->
-        <ul class="nav-links flex space-x-6" v-if="!isMobile">
+        <ul class="nav-links flex space-x-6 items-center" v-if="!isMobile">
           <li><router-link to="/">Home</router-link></li>
           <li><router-link to="/about">About Us</router-link></li>
           <li><router-link to="/services">Services</router-link></li>
           <li><router-link to="/process">Our Process</router-link></li>
           <li><router-link to="/gallery">Gallery</router-link></li>
           <li><router-link to="/contact">Contact</router-link></li>
+
+          <!-- CTA Button Added to Desktop Navigation -->
+          <li class="cta-btn">
+            <router-link to="/contact">
+              <button class="cta-button">Request Your Free Consultation</button>
+            </router-link>
+          </li>
         </ul>
 
         <!-- Hamburger Menu Icon (visible on mobile) -->
@@ -55,7 +62,7 @@
               >Contact</router-link
             >
           </li>
-          <!-- CTA Button added in the dropdown for mobile -->
+          <!-- CTA Button inside Mobile Menu -->
           <li class="mobile-cta-btn">
             <router-link to="/contact" @click="toggleMobileMenu">
               <button class="cta-button">
@@ -164,6 +171,7 @@ export default {
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  font-size: 16px;
   transition: background-color 0.3s ease;
 }
 

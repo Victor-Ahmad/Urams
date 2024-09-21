@@ -51,6 +51,9 @@
 <script>
 export default {
   name: "GalleryPage",
+  mounted() {
+    this.scrollToTop();
+  },
   data() {
     return {
       selectedImage: null,
@@ -72,6 +75,13 @@ export default {
       this.selectedImageIndex = null;
       // Enable scrolling when modal is closed
       document.body.style.overflow = "";
+    },
+    scrollToTop() {
+      // Smoothly scrolls to the very top of the document (including scroll restoration)
+      window.scrollTo({
+        top: 0, // Ensures scrolling to the top of the document
+        behavior: "smooth",
+      });
     },
   },
 };

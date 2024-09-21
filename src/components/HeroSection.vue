@@ -1,39 +1,35 @@
 <template>
   <section class="hero">
-    <div class="overlay">
-      <div class="content">
-        <!-- Main Heading -->
-        <h1>Transform Your Bathroom with Expert Craftsmanship</h1>
+    <div class="overlay"></div>
 
-        <!-- Subheading -->
-        <p>Professional bathroom renovation services tailored to your needs.</p>
+    <!-- Slideshow Divs -->
+    <div class="slideshow slide1"></div>
+    <div class="slideshow slide2"></div>
+    <div class="slideshow slide3"></div>
 
-        <!-- CTA Buttons -->
-        <div class="cta-buttons">
-          <router-link to="/contact">
-            <button class="cta-button primary">Get a Free Quote</button>
-          </router-link>
-          <a href="https://wa.me/yourwhatsappnumber">
-            <button class="cta-button secondary">WhatsApp</button>
-          </a>
-        </div>
+    <div class="content">
+      <!-- Main Heading -->
+      <h1>Transform Your Bathroom with Expert Craftsmanship</h1>
+
+      <!-- Subheading -->
+      <p>Professional bathroom renovation services tailored to your needs.</p>
+
+      <!-- CTA Buttons -->
+      <div class="cta-buttons">
+        <router-link to="/contact">
+          <button class="cta-button primary">Get a Free Quote</button>
+        </router-link>
+        <a href="https://wa.me/yourwhatsappnumber">
+          <button class="cta-button secondary">WhatsApp</button>
+        </a>
       </div>
     </div>
   </section>
 </template>
 
 <script>
-import hero1 from "@/assets/images/hero/hero_1.jpg";
-import hero2 from "@/assets/images/hero/hero_2.jpg";
-import hero3 from "@/assets/images/hero/hero_3.jpg";
-
 export default {
   name: "HeroSection",
-  data() {
-    return {
-      heroImages: [hero1, hero2, hero3],
-    };
-  },
 };
 </script>
 
@@ -45,25 +41,7 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-size: cover;
-  background-position: center;
-  animation: fadeImages 15s infinite;
-}
-
-/* Animation to rotate between background images */
-@keyframes fadeImages {
-  0% {
-    background-image: url("@/assets/images/hero/hero_1.jpg");
-  }
-  33% {
-    background-image: url("@/assets/images/hero/hero_2.jpg");
-  }
-  66% {
-    background-image: url("@/assets/images/hero/hero_3.jpg");
-  }
-  100% {
-    background-image: url("@/assets/images/hero/hero_1.jpg");
-  }
+  overflow: hidden;
 }
 
 /* Overlay Effect */
@@ -74,15 +52,65 @@ export default {
   right: 0;
   bottom: 0;
   left: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  z-index: 1; /* Above slideshow */
+}
+
+/* Slideshow Background Images */
+.slideshow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  z-index: 0; /* Behind overlay and content */
+  animation: fadeSlideshow 18s infinite;
+}
+
+.slide1 {
+  background-image: url("@/assets/images/hero/hero_1.png");
+}
+
+.slide2 {
+  background-image: url("@/assets/images/hero/hero_2.png");
+  animation-delay: 6s;
+}
+
+.slide3 {
+  background-image: url("@/assets/images/hero/hero_3.png");
+  animation-delay: 12s;
+}
+
+/* Keyframes for slideshow fading */
+@keyframes fadeSlideshow {
+  0% {
+    opacity: 1;
+  }
+  33.33% {
+    opacity: 1;
+  }
+  38% {
+    opacity: 0;
+  }
+  66.66% {
+    opacity: 0;
+  }
+  71% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 /* Content Centered */
 .content {
+  position: relative;
   text-align: center;
   color: white;
+  z-index: 2; /* Above slideshow */
   max-width: 700px;
   padding: 20px;
 }

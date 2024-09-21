@@ -23,5 +23,17 @@ export default {
     ClientTestimonials,
     CTASection,
   },
+  mounted() {
+    this.scrollToTop();
+  },
+  methods: {
+    scrollToTop() {
+      // Smoothly scrolls to the very top of the document (including scroll restoration)
+      window.scrollTo({
+        top: 0, // Ensures scrolling to the top of the document
+        behavior: "smooth",
+      });
+    },
+  },
 };
 </script>

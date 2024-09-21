@@ -295,6 +295,16 @@ export default {
       easing: "ease-in-out",
       once: true,
     });
+    this.scrollToTop();
+  },
+  methods: {
+    scrollToTop() {
+      // Smoothly scrolls to the very top of the document (including scroll restoration)
+      window.scrollTo({
+        top: 0, // Ensures scrolling to the top of the document
+        behavior: "smooth",
+      });
+    },
   },
   data() {
     return {

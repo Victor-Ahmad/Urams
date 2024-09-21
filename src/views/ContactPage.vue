@@ -73,15 +73,15 @@
         <ul class="contact-details">
           <li>
             <i class="fas fa-phone"></i>
-            <span><strong>Phone:</strong> +31 6 85011945</span>
+            <span><strong>Phone:</strong> 0611410968</span>
           </li>
           <li>
             <i class="fas fa-envelope"></i>
-            <span><strong>Email:</strong> info@example.com</span>
+            <span><strong>Email:</strong> info@urams.com</span>
           </li>
           <li>
             <i class="fas fa-map-marker-alt"></i>
-            <span><strong>Address:</strong> 123 Main St, City, Country</span>
+            <span><strong>Address:</strong>3162PL, Saffierlaan 214</span>
           </li>
         </ul>
       </div>
@@ -113,6 +113,7 @@ export default {
       easing: "ease-in-out",
       once: true,
     });
+    this.scrollToTop();
   },
   data() {
     return {
@@ -127,6 +128,14 @@ export default {
   methods: {
     submitForm() {
       alert(`Thank you, ${this.formData.name}, for contacting us!`);
+    },
+
+    scrollToTop() {
+      // Smoothly scrolls to the very top of the document (including scroll restoration)
+      window.scrollTo({
+        top: 0, // Ensures scrolling to the top of the document
+        behavior: "smooth",
+      });
     },
   },
 };

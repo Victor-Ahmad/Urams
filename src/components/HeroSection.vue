@@ -9,18 +9,22 @@
 
     <div class="content">
       <!-- Main Heading -->
-      <h1>Transform Your Bathroom with Expert Craftsmanship</h1>
+      <h1>{{ $t("hero.heading") }}</h1>
 
       <!-- Subheading -->
-      <p>Professional bathroom renovation services tailored to your needs.</p>
+      <p>{{ $t("hero.subheading") }}</p>
 
       <!-- CTA Buttons -->
       <div class="cta-buttons">
         <router-link to="/contact">
-          <button class="cta-button primary">Get a Free Quote</button>
+          <button class="cta-button primary">
+            {{ $t("hero.cta.getQuote") }}
+          </button>
         </router-link>
         <a href="https://wa.me/yourwhatsappnumber">
-          <button class="cta-button secondary">WhatsApp</button>
+          <button class="cta-button secondary">
+            {{ $t("hero.cta.whatsapp") }}
+          </button>
         </a>
       </div>
     </div>

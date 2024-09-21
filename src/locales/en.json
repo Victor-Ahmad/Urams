@@ -134,6 +134,133 @@
     "contact": {
       "whatsapp": "WhatsApp"
     }
+  },
+  "hero": {
+    "heading": "Transform Your Bathroom with Expert Craftsmanship",
+    "subheading": "Professional bathroom renovation services tailored to your needs.",
+    "cta": {
+      "getQuote": "Get a Free Quote",
+      "whatsapp": "WhatsApp"
+    }
+  },
+  "ourServices": {
+    "heading": "Our Services",
+    "subheading": "Comprehensive solutions for your bathroom renovation needs.",
+    "items": {
+      "1": {
+        "title": "Plumbing",
+        "description": "Expert installation and repair of pipes and fixtures."
+      },
+      "2": {
+        "title": "Wall Preparation",
+        "description": "Wall leveling and construction of new walls if needed."
+      },
+      "3": {
+        "title": "Tiling",
+        "description": "High-quality tiling services for walls and floors."
+      },
+      "4": {
+        "title": "Silicone Application",
+        "description": "Application of silicone for sealing and protection."
+      },
+      "5": {
+        "title": "Ceiling Painting",
+        "description": "Professional ceiling painting and finishing."
+      },
+      "6": {
+        "title": "Bathroom Fixtures",
+        "description": "Installation of shower cabins, mirrors, sinks, and cabinets."
+      },
+      "7": {
+        "title": "Full Bathroom Renovation",
+        "description": "Complete renovation services from start to finish."
+      }
+    }
+  },
+  "processSteps": {
+    "heading": "How It Works",
+    "subheading": "Our 5-Step Process to a Perfect Bathroom",
+    "steps": {
+      "1": {
+        "title": "Free Consultation",
+        "description": "Discuss your needs and expectations with our experts."
+      },
+      "2": {
+        "title": "Site Visit",
+        "description": "We visit your location to assess the space, equipment, and work required."
+      },
+      "3": {
+        "title": "Quotation & Planning",
+        "description": "Receive a detailed quote and plan outlining all steps and timelines."
+      },
+      "4": {
+        "title": "Approval",
+        "description": "Review and approve the plan and quotation."
+      },
+      "5": {
+        "title": "Installation & Delivery",
+        "description": "Our team executes the project, delivering a fully renovated bathroom."
+      }
+    }
+  },
+  "testimonials": {
+    "heading": "What Our Clients Say",
+    "items": {
+      "1": {
+        "quote": "Urams transformed my bathroom into a masterpiece! The attention to detail was incredible.",
+        "name": "Emily Johnson"
+      },
+      "2": {
+        "quote": "We couldn’t have asked for a better renovation. The team was professional and the results stunning.",
+        "name": "Chris Lee"
+      },
+      "3": {
+        "quote": "Excellent service from start to finish. The whole process was smooth, and the quality of work was exceptional!",
+        "name": "Olivia Smith"
+      },
+      "4": {
+        "quote": "The best renovation company we have worked with! Our bathroom looks amazing!",
+        "name": "Michael Williams"
+      },
+      "5": {
+        "quote": "Urams exceeded our expectations. Everything was done with precision and care.",
+        "name": "Sophia Brown"
+      },
+      "6": {
+        "quote": "The team worked efficiently and professionally. The end result is exactly what we wanted.",
+        "name": "Lucas Davis"
+      },
+      "7": {
+        "quote": "The craftsmanship and quality of work were top-notch. Highly recommend Urams for any renovation!",
+        "name": "Ella Martinez"
+      }
+    }
+  },
+  "cta": {
+    "heading": "Ready to Start Your Renovation?",
+    "subheading": "Transform your bathroom with expert craftsmanship. Contact us today to get started on your project!",
+    "buttons": {
+      "contact": "Contact Us Today",
+      "getQuote": "Get a Free Quote"
+    }
+  },
+  "contactForm": {
+    "labels": {
+      "name": "Name",
+      "email": "Email",
+      "phone": "Phone",
+      "service": "Service Interested In",
+      "message": "Message"
+    },
+    "services": {
+      "plumbing": "Plumbing",
+      "tiling": "Tiling",
+      "fullRenovation": "Full Renovation"
+    },
+    "buttons": {
+      "submit": "Submit"
+    },
+    "submitSuccess": "Form submitted successfully!"
   }
       
       

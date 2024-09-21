@@ -134,6 +134,133 @@
         "contact": {
           "whatsapp": "WhatsApp"
         }
+      },
+      "hero": {
+        "heading": "Transformeer uw badkamer met deskundig vakmanschap",
+        "subheading": "Professionele badkamerrenovatiediensten afgestemd op uw behoeften.",
+        "cta": {
+          "getQuote": "Vraag een Gratis Offerte Aan",
+          "whatsapp": "WhatsApp"
+        }
+      },
+      "ourServices": {
+        "heading": "Onze Diensten",
+        "subheading": "Uitgebreide oplossingen voor uw badkamerrenovatiebehoeften.",
+        "items": {
+          "1": {
+            "title": "Loodgieterij",
+            "description": "Deskundige installatie en reparatie van leidingen en armaturen."
+          },
+          "2": {
+            "title": "Wandvoorbereiding",
+            "description": "Wandegaliseering en bouw van nieuwe muren indien nodig."
+          },
+          "3": {
+            "title": "Tegelen",
+            "description": "Hoogwaardige tegelservices voor muren en vloeren."
+          },
+          "4": {
+            "title": "Siliconentoepassing",
+            "description": "Aanbrengen van siliconen voor afdichting en bescherming."
+          },
+          "5": {
+            "title": "Plafondschilderen",
+            "description": "Professioneel schilderen en afwerken van plafonds."
+          },
+          "6": {
+            "title": "Badkamerinrichting",
+            "description": "Installatie van douchecabines, spiegels, wastafels en kasten."
+          },
+          "7": {
+            "title": "Volledige Badkamerrenovatie",
+            "description": "Complete renovatieservice van begin tot eind."
+          }
+        }
+      },
+      "processSteps": {
+        "heading": "Hoe Het Werkt",
+        "subheading": "Ons 5-stappenproces naar de perfecte badkamer",
+        "steps": {
+          "1": {
+            "title": "Gratis Consult",
+            "description": "Bespreek uw wensen en verwachtingen met onze experts."
+          },
+          "2": {
+            "title": "Plaatsbezoek",
+            "description": "We bezoeken uw locatie om de ruimte, apparatuur en benodigde werkzaamheden te beoordelen."
+          },
+          "3": {
+            "title": "Offerte & Planning",
+            "description": "Ontvang een gedetailleerde offerte en planning met alle stappen en tijdlijnen."
+          },
+          "4": {
+            "title": "Goedkeuring",
+            "description": "Beoordeel en keur het plan en de offerte goed."
+          },
+          "5": {
+            "title": "Installatie & Oplevering",
+            "description": "Ons team voert het project uit en levert een volledig gerenoveerde badkamer."
+          }
+        }
+      },
+      "testimonials": {
+        "heading": "Wat Onze Klanten Zeggen",
+        "items": {
+          "1": {
+            "quote": "Urams heeft mijn badkamer omgetoverd tot een meesterwerk! De aandacht voor detail was ongelooflijk.",
+            "name": "Emily Johnson"
+          },
+          "2": {
+            "quote": "We hadden geen betere renovatie kunnen vragen. Het team was professioneel en het resultaat verbluffend.",
+            "name": "Chris Lee"
+          },
+          "3": {
+            "quote": "Uitstekende service van begin tot eind. Het hele proces verliep soepel en de kwaliteit van het werk was uitzonderlijk!",
+            "name": "Olivia Smith"
+          },
+          "4": {
+            "quote": "Het beste renovatiebedrijf waar we mee hebben gewerkt! Onze badkamer ziet er geweldig uit!",
+            "name": "Michael Williams"
+          },
+          "5": {
+            "quote": "Urams overtrof onze verwachtingen. Alles werd met precisie en zorg uitgevoerd.",
+            "name": "Sophia Brown"
+          },
+          "6": {
+            "quote": "Het team werkte efficiënt en professioneel. Het eindresultaat is precies wat we wilden.",
+            "name": "Lucas Davis"
+          },
+          "7": {
+            "quote": "Het vakmanschap en de kwaliteit van het werk waren van topklasse. Ik beveel Urams ten zeerste aan voor elke renovatie!",
+            "name": "Ella Martinez"
+          }
+        }
+      },
+      "cta": {
+        "heading": "Klaar om aan uw renovatie te beginnen?",
+        "subheading": "Transformeer uw badkamer met deskundig vakmanschap. Neem vandaag nog contact met ons op om te beginnen aan uw project!",
+        "buttons": {
+          "contact": "Neem Vandaag Contact Op",
+          "getQuote": "Vraag een Gratis Offerte Aan"
+        }
+      },
+      "contactForm": {
+        "labels": {
+          "name": "Naam",
+          "email": "E-mail",
+          "phone": "Telefoon",
+          "service": "Geïnteresseerde Dienst",
+          "message": "Bericht"
+        },
+        "services": {
+          "plumbing": "Loodgieterij",
+          "tiling": "Tegelen",
+          "fullRenovation": "Volledige Renovatie"
+        },
+        "buttons": {
+          "submit": "Verzenden"
+        },
+        "submitSuccess": "Formulier succesvol verzonden!"
       }
 
   }

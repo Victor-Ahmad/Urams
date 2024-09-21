@@ -11,9 +11,9 @@
 
     <div class="container">
       <!-- Process Heading -->
-      <h2 data-aos="fade-up">How It Works</h2>
+      <h2 data-aos="fade-up">{{ $t("processSteps.heading") }}</h2>
       <p class="subheading" data-aos="fade-up" data-aos-delay="100">
-        Our 5-Step Process to a Perfect Bathroom
+        {{ $t("processSteps.subheading") }}
       </p>
 
       <!-- Stairs Layout -->
@@ -31,8 +31,8 @@
               <img :src="step.icon" alt="Step Icon" class="step-icon" />
             </div>
             <div class="step-text">
-              <h3>{{ step.title }}</h3>
-              <p>{{ step.description }}</p>
+              <h3>{{ $t(`processSteps.steps.${index + 1}.title`) }}</h3>
+              <p>{{ $t(`processSteps.steps.${index + 1}.description`) }}</p>
             </div>
           </div>
         </div>
@@ -66,31 +66,28 @@ export default {
       steps: [
         {
           icon: step1Icon,
-          title: "Free Consultation",
-          description: "Discuss your needs and expectations with our experts.",
+          title: this.$t("processSteps.steps.1.title"),
+          description: this.$t("processSteps.steps.1.description"),
         },
         {
           icon: step2Icon,
-          title: "Site Visit",
-          description:
-            "We visit your location to assess the space, equipment, and work required.",
+          title: this.$t("processSteps.steps.2.title"),
+          description: this.$t("processSteps.steps.2.description"),
         },
         {
           icon: step3Icon,
-          title: "Quotation & Planning",
-          description:
-            "Receive a detailed quote and plan outlining all steps and timelines.",
+          title: this.$t("processSteps.steps.3.title"),
+          description: this.$t("processSteps.steps.3.description"),
         },
         {
           icon: step4Icon,
-          title: "Approval",
-          description: "Review and approve the plan and quotation.",
+          title: this.$t("processSteps.steps.4.title"),
+          description: this.$t("processSteps.steps.4.description"),
         },
         {
           icon: step5Icon,
-          title: "Installation & Delivery",
-          description:
-            "Our team executes the project, delivering a fully renovated bathroom.",
+          title: this.$t("processSteps.steps.5.title"),
+          description: this.$t("processSteps.steps.5.description"),
         },
       ],
     };

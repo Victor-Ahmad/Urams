@@ -2,20 +2,23 @@
   <section class="cta-section">
     <div class="container">
       <!-- Main Heading -->
-      <h2>Ready to Start Your Renovation?</h2>
+      <h2>{{ $t("cta.heading") }}</h2>
       <!-- Subheading -->
       <p>
-        Transform your bathroom with expert craftsmanship. Contact us today to
-        get started on your project!
+        {{ $t("cta.subheading") }}
       </p>
 
       <!-- CTA Buttons -->
       <div class="cta-buttons">
         <router-link to="/contact">
-          <button class="cta-button primary">Contact Us Today</button>
+          <button class="cta-button primary">
+            {{ $t("cta.buttons.contact") }}
+          </button>
         </router-link>
         <router-link to="/quote">
-          <button class="cta-button secondary">Get a Free Quote</button>
+          <button class="cta-button secondary">
+            {{ $t("cta.buttons.getQuote") }}
+          </button>
         </router-link>
       </div>
     </div>

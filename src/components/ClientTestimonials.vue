@@ -2,7 +2,7 @@
   <section class="testimonials">
     <div class="container">
       <!-- Testimonials Heading -->
-      <h2 data-aos="fade-up">What Our Clients Say</h2>
+      <h2 data-aos="fade-up">{{ $t("testimonials.heading") }}</h2>
 
       <!-- Swiper Container -->
       <swiper
@@ -18,10 +18,14 @@
           <div class="testimonial-card" data-aos="fade-up">
             <div class="quote-icon">“</div>
             <div class="quote-wrapper">
-              <blockquote>"{{ testimonial.quote }}"</blockquote>
+              <blockquote>
+                "{{ $t(`testimonials.items.${index + 1}.quote`) }}"
+              </blockquote>
             </div>
             <div class="gradient-divider"></div>
-            <p class="client-name">{{ testimonial.name }}</p>
+            <p class="client-name">
+              {{ $t(`testimonials.items.${index + 1}.name`) }}
+            </p>
           </div>
         </swiper-slide>
       </swiper>
@@ -45,39 +49,32 @@ export default {
       swiperModules: [Autoplay],
       testimonials: [
         {
-          quote:
-            "Urams transformed my bathroom into a masterpiece! The attention to detail was incredible.",
-          name: "Emily Johnson",
+          quote: this.$t("testimonials.items.1.quote"),
+          name: this.$t("testimonials.items.1.name"),
         },
         {
-          quote:
-            "We couldn’t have asked for a better renovation. The team was professional and the results stunning.",
-          name: "Chris Lee",
+          quote: this.$t("testimonials.items.2.quote"),
+          name: this.$t("testimonials.items.2.name"),
         },
         {
-          quote:
-            "Excellent service from start to finish. The whole process was smooth, and the quality of work was exceptional!",
-          name: "Olivia Smith",
+          quote: this.$t("testimonials.items.3.quote"),
+          name: this.$t("testimonials.items.3.name"),
         },
         {
-          quote:
-            "The best renovation company we have worked with! Our bathroom looks amazing!",
-          name: "Michael Williams",
+          quote: this.$t("testimonials.items.4.quote"),
+          name: this.$t("testimonials.items.4.name"),
         },
         {
-          quote:
-            "Urams exceeded our expectations. Everything was done with precision and care.",
-          name: "Sophia Brown",
+          quote: this.$t("testimonials.items.5.quote"),
+          name: this.$t("testimonials.items.5.name"),
         },
         {
-          quote:
-            "The team worked efficiently and professionally. The end result is exactly what we wanted.",
-          name: "Lucas Davis",
+          quote: this.$t("testimonials.items.6.quote"),
+          name: this.$t("testimonials.items.6.name"),
         },
         {
-          quote:
-            "The craftsmanship and quality of work were top-notch. Highly recommend Urams for any renovation!",
-          name: "Ella Martinez",
+          quote: this.$t("testimonials.items.7.quote"),
+          name: this.$t("testimonials.items.7.name"),
         },
       ],
     };

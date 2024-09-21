@@ -2,9 +2,9 @@
   <section class="services">
     <div class="container">
       <!-- Services Heading -->
-      <h2 data-aos="fade-up">Our Services</h2>
+      <h2 data-aos="fade-up">{{ $t("ourServices.heading") }}</h2>
       <p class="subheading" data-aos="fade-up" data-aos-delay="100">
-        Comprehensive solutions for your bathroom renovation needs.
+        {{ $t("ourServices.subheading") }}
       </p>
 
       <!-- Services Grid -->
@@ -19,8 +19,8 @@
           <div class="icon-wrapper" data-aos="zoom-in" data-aos-delay="200">
             <img :src="service.icon" alt="Service Icon" class="service-icon" />
           </div>
-          <h3>{{ service.title }}</h3>
-          <p>{{ service.description }}</p>
+          <h3>{{ $t(`ourServices.items.${index + 1}.title`) }}</h3>
+          <p>{{ $t(`ourServices.items.${index + 1}.description`) }}</p>
         </div>
       </div>
     </div>
@@ -53,39 +53,38 @@ export default {
       services: [
         {
           icon: plumbingIcon,
-          title: "Plumbing",
-          description: "Expert installation and repair of pipes and fixtures.",
+          title: this.$t("ourServices.items.1.title"),
+          description: this.$t("ourServices.items.1.description"),
         },
         {
           icon: wallPreparationIcon,
-          title: "Wall Preparation",
-          description: "Wall leveling and construction of new walls if needed.",
+          title: this.$t("ourServices.items.2.title"),
+          description: this.$t("ourServices.items.2.description"),
         },
         {
           icon: tilingIcon,
-          title: "Tiling",
-          description: "High-quality tiling services for walls and floors.",
+          title: this.$t("ourServices.items.3.title"),
+          description: this.$t("ourServices.items.3.description"),
         },
         {
           icon: siliconeApplicationIcon,
-          title: "Silicone Application",
-          description: "Application of silicone for sealing and protection.",
+          title: this.$t("ourServices.items.4.title"),
+          description: this.$t("ourServices.items.4.description"),
         },
         {
           icon: ceilingPaintingIcon,
-          title: "Ceiling Painting",
-          description: "Professional ceiling painting and finishing.",
+          title: this.$t("ourServices.items.5.title"),
+          description: this.$t("ourServices.items.5.description"),
         },
         {
           icon: bathroomFixturesIcon,
-          title: "Bathroom Fixtures",
-          description:
-            "Installation of shower cabins, mirrors, sinks, and cabinets.",
+          title: this.$t("ourServices.items.6.title"),
+          description: this.$t("ourServices.items.6.description"),
         },
         {
           icon: fullRenovationIcon,
-          title: "Full Bathroom Renovation",
-          description: "Complete renovation services from start to finish.",
+          title: this.$t("ourServices.items.7.title"),
+          description: this.$t("ourServices.items.7.description"),
         },
       ],
     };

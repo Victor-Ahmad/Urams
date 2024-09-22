@@ -6,10 +6,10 @@
         <a href="mailto:info@urams.com">
           <i class="fas fa-envelope"></i> info@urams.com
         </a>
-        <a href="tel:+31611410968">
-          <i class="fas fa-phone-alt"></i> 0611410968
+        <a href="tel:+31685011945">
+          <i class="fas fa-phone-alt"></i> +31 6 85011945
         </a>
-        <a href="https://wa.me/31611410968" target="_blank">
+        <a href="https://wa.me/31685011945" target="_blank">
           <img
             src="https://img.icons8.com/color/48/000000/whatsapp.png"
             alt="WhatsApp"

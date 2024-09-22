@@ -85,13 +85,6 @@
             >
           </li>
           <li>
-            <i class="fas fa-envelope"></i>
-            <span
-              ><strong>{{ $t("contactUsForm.info.emailLabel") }}:</strong>
-              uramsbouw@gmail.com</span
-            >
-          </li>
-          <li>
             <i class="fas fa-map-marker-alt"></i>
             <span
               ><strong>{{ $t("contactUsForm.info.addressLabel") }}:</strong>

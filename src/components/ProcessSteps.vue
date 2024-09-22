@@ -37,6 +37,13 @@
           </div>
         </div>
       </div>
+      <div class="gallery-redirect-section" data-aos="zoom-in">
+        <div class="gallery-redirect">
+          <router-link to="/gallery" class="gallery-button">
+            {{ $t("galleryRedirect.title") }}
+          </router-link>
+        </div>
+      </div>
     </div>
   </section>
 </template>
@@ -98,6 +105,71 @@ export default {
 <style scoped>
 /* Import Font */
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+
+.gallery-redirect-section {
+  padding-top: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Gallery Redirect Styling */
+.gallery-redirect {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.gallery-button {
+  background: linear-gradient(
+    135deg,
+    #ff9a8b,
+    #fecf6d,
+    #ff7e5f
+  ); /* Vibrant gradient */
+  color: white;
+  padding: 20px 40px;
+  font-size: 20px;
+  font-weight: 600;
+  border-radius: 50px;
+  text-decoration: none;
+  text-align: center;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  background-size: 200% 200%; /* Animate gradient */
+  animation: gradientPulse 5s ease infinite; /* Background pulse */
+}
+
+.gallery-button:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); /* Hover effect */
+}
+
+/* Gradient animation pulse */
+@keyframes gradientPulse {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+  .gallery-button {
+    font-size: 18px;
+    padding: 15px 30px;
+  }
+
+  .gallery-redirect-section {
+    padding: 40px 10px;
+    margin: 20px auto;
+  }
+}
 
 /* Process Section Styles */
 .process-stairs {

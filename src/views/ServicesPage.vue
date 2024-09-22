@@ -158,6 +158,7 @@ export default {
   max-width: 1200px;
   margin: 0 auto;
   padding: 80px 20px;
+  box-sizing: border-box; /* Ensure padding stays inside the width */
 }
 
 .services h2 {
@@ -173,6 +174,7 @@ export default {
   grid-template-columns: repeat(3, 1fr);
   gap: 50px;
   padding: 0 20px;
+  box-sizing: border-box; /* Make sure padding is respected within the grid */
 }
 
 /* Service Card Styling */
@@ -238,6 +240,10 @@ export default {
 
   .hero p {
     font-size: 18px;
+  }
+
+  .container {
+    padding: 40px 15px; /* Ensure mobile devices don't have excessive padding */
   }
 }
 </style>

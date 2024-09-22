@@ -3,16 +3,16 @@
     <!-- Hero Section -->
     <div class="hero">
       <div class="hero-overlay">
-        <h1 data-aos="fade-down">{{ $t("contactUs.hero.title") }}</h1>
+        <h1 data-aos="fade-down">{{ $t("contactUsForm.hero.title") }}</h1>
         <p data-aos="fade-up" data-aos-delay="200">
-          {{ $t("contactUs.hero.subtitle") }}
+          {{ $t("contactUsForm.hero.subtitle") }}
         </p>
       </div>
     </div>
 
     <!-- Contact Form Section -->
     <div class="container contact-form-section">
-      <h2 data-aos="fade-up">{{ $t("contactUs.form.title") }}</h2>
+      <h2 data-aos="fade-up">{{ $t("contactUsForm.form.title") }}</h2>
       <form
         @submit.prevent="submitForm"
         class="contact-form"
@@ -20,50 +20,54 @@
         data-aos-delay="100"
       >
         <div class="form-group">
-          <label for="name">{{ $t("contactUs.form.labels.name") }}</label>
+          <label for="name">{{ $t("contactUsForm.form.labels.name") }}</label>
           <input
             type="text"
             v-model="formData.name"
             id="name"
-            :placeholder="$t('contactUs.form.placeholders.name')"
+            :placeholder="$t('contactUsForm.form.placeholders.name')"
             required
           />
         </div>
 
         <div class="form-group">
-          <label for="email">{{ $t("contactUs.form.labels.email") }}</label>
+          <label for="email">{{ $t("contactUsForm.form.labels.email") }}</label>
           <input
             type="email"
             v-model="formData.email"
             id="email"
-            :placeholder="$t('contactUs.form.placeholders.email')"
+            :placeholder="$t('contactUsForm.form.placeholders.email')"
             required
           />
         </div>
 
         <div class="form-group">
-          <label for="phone">{{ $t("contactUs.form.labels.phone") }}</label>
+          <label for="phone">{{ $t("contactUsForm.form.labels.phone") }}</label>
           <input
             type="tel"
             v-model="formData.phone"
             id="phone"
-            :placeholder="$t('contactUs.form.placeholders.phone')"
+            :placeholder="$t('contactUsForm.form.placeholders.phone')"
             required
           />
         </div>
 
         <div class="form-group">
-          <label for="message">{{ $t("contactUs.form.labels.message") }}</label>
+          <label for="message">{{
+            $t("contactUsForm.form.labels.message")
+          }}</label>
           <textarea
             v-model="formData.message"
             id="message"
-            :placeholder="$t('contactUs.form.placeholders.message')"
+            :placeholder="$t('contactUsForm.form.placeholders.message')"
             required
           ></textarea>
         </div>
 
-        <button type="submit" class="submit-button">
-          {{ $t("contactUs.form.submitButton") }}
+        <button type="submit" class="submit-button" :disabled="loading">
+          <!-- Show spinner when loading -->
+          <span v-if="loading" class="spinner"></span>
+          <span v-else>{{ $t("contactUsForm.form.submitButton") }}</span>
         </button>
       </form>
     </div>
@@ -71,27 +75,27 @@
     <!-- Contact Information Section -->
     <div class="contact-info" data-aos="fade-up">
       <div class="contact-info-container">
-        <h2>{{ $t("contactUs.info.title") }}</h2>
+        <h2>{{ $t("contactUsForm.info.title") }}</h2>
         <ul class="contact-details">
           <li>
             <i class="fas fa-phone"></i>
             <span
-              ><strong>{{ $t("contactUs.info.phoneLabel") }}:</strong>
-              0611410968</span
+              ><strong>{{ $t("contactUsForm.info.phoneLabel") }}:</strong> +31 6
+              85011945</span
             >
           </li>
           <li>
             <i class="fas fa-envelope"></i>
             <span
-              ><strong>{{ $t("contactUs.info.emailLabel") }}:</strong>
-              info@urams.com</span
+              ><strong>{{ $t("contactUsForm.info.emailLabel") }}:</strong>
+              uramsbouw@gmail.com</span
             >
           </li>
           <li>
             <i class="fas fa-map-marker-alt"></i>
             <span
-              ><strong>{{ $t("contactUs.info.addressLabel") }}:</strong> 3162PL,
-              Saffierlaan 214</span
+              ><strong>{{ $t("contactUsForm.info.addressLabel") }}:</strong>
+              3162PL, Saffierlaan 214</span
             >
           </li>
         </ul>
@@ -113,19 +117,11 @@
 </template>
 
 <script>
-import AOS from "aos";
-import "aos/dist/aos.css";
+import emailjs from "emailjs-com";
+import Swal from "sweetalert2"; // Import SweetAlert2 for better alerts
 
 export default {
   name: "ContactPage",
-  mounted() {
-    AOS.init({
-      duration: 1000,
-      easing: "ease-in-out",
-      once: true,
-    });
-    this.scrollToTop();
-  },
   data() {
     return {
       formData: {
@@ -134,26 +130,114 @@ export default {
         phone: "",
         message: "",
       },
+      loading: false, // Add loading state
     };
   },
   methods: {
     submitForm() {
-      alert(
-        this.$t("contactUs.form.alertMessage", { name: this.formData.name })
-      );
-    },
+      this.loading = true; // Start loading when submit is triggered
 
-    scrollToTop() {
-      window.scrollTo({
-        top: 0,
-        behavior: "smooth",
-      });
+      const formParams = {
+        from_name: this.formData.name,
+        from_email: this.formData.email,
+        phone: this.formData.phone,
+        message: this.formData.message,
+      };
+
+      emailjs
+        .send(
+          "service_bzudvfj", // Your EmailJS Service ID
+          "template_gyf90zu", // Your EmailJS Template ID
+          formParams,
+          "gfSn2glJHkxsOpZN4" // Your Public Key
+        )
+        .then(
+          () => {
+            this.loading = false; // Stop loading after success
+            // Success Alert
+            Swal.fire({
+              icon: "success",
+              title: this.$t("contactUsForm.form.successTitle"),
+              text: this.$t("contactUsForm.form.successMessage"),
+              showConfirmButton: false,
+              timer: 3000,
+            });
+            // Reset form data
+            this.formData = {
+              name: "",
+              email: "",
+              phone: "",
+              message: "",
+            };
+          },
+          (error) => {
+            this.loading = false; // Stop loading after error
+            // Error Alert
+            Swal.fire({
+              icon: "error",
+              title: this.$t("contactUsForm.form.errorTitle"),
+              text: this.$t("contactUsForm.form.errorMessage"),
+            });
+            console.error("Failed to send email: ", error.text);
+          }
+        );
     },
   },
 };
 </script>
 
 <style scoped>
+/* Form Group */
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 15px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+}
+
+.submit-button {
+  background-color: #007bff;
+  color: white;
+  padding: 12px 25px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+}
+
+.submit-button:hover {
+  background-color: #0056b3;
+}
+
+/* Spinner */
+.spinner {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: #fff;
+  animation: spin 1s ease-in-out infinite;
+  vertical-align: middle;
+  margin-right: 5px;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Disabled button when loading */
+.submit-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
 /* General Page Styling */
 .contact-page {
   color: #333;
@@ -175,12 +259,7 @@ export default {
 }
 
 .hero-overlay {
-  background-color: rgba(
-    0,
-    0,
-    0,
-    0.6
-  ); /* Dark overlay for better text contrast */
+  background-color: rgba(0, 0, 0, 0.6);
   padding: 50px;
   text-align: center;
   color: white;
@@ -190,7 +269,7 @@ export default {
 .hero h1 {
   font-size: 56px;
   font-weight: bold;
-  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3); /* Text shadow for emphasis */
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
   margin-bottom: 20px;
 }
 
@@ -209,9 +288,8 @@ export default {
   background: linear-gradient(135deg, #f0f4f8 50%, #ffffff 50%);
   box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
   border-radius: 20px;
-  transform-style: preserve-3d;
-  margin-top: 40px; /* Add margin above */
-  margin-bottom: 80px; /* Add margin below */
+  margin-top: 40px;
+  margin-bottom: 80px;
 }
 
 .contact-form-section h2 {
@@ -237,45 +315,8 @@ export default {
   margin-bottom: 10px;
 }
 
-.form-group input,
-.form-group textarea {
-  width: 100%;
-  padding: 15px;
-  font-size: 16px;
-  border: 2px solid #ccc;
-  border-radius: 10px;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-}
-
-.form-group input:focus,
-.form-group textarea:focus {
-  border-color: #007bff;
-  box-shadow: 0 10px 20px rgba(0, 123, 255, 0.2);
-}
-
 textarea {
   height: 160px;
-}
-
-/* Submit Button */
-.submit-button {
-  display: block;
-  width: 100%;
-  padding: 18px;
-  font-size: 18px;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.3s ease;
-  box-shadow: 0 8px 15px rgba(0, 123, 255, 0.3);
-}
-
-.submit-button:hover {
-  background-color: #0056b3;
-  transform: translateY(-3px);
 }
 
 /* Contact Information Section */
@@ -299,7 +340,6 @@ textarea {
 .contact-details {
   list-style: none;
   padding: 0;
-  margin: 0;
 }
 
 .contact-details li {
@@ -327,6 +367,7 @@ textarea {
   .container {
     max-width: 80%;
   }
+
   .contact-form {
     max-width: 100%;
   }
@@ -350,10 +391,7 @@ textarea {
   .contact-details i {
     margin-bottom: 10px;
   }
-  .form-group input,
-  .form-group textarea {
-    max-width: 90%;
-  }
+
   .submit-button {
     max-width: 100%;
   }

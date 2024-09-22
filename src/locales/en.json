@@ -244,23 +244,40 @@
       "getQuote": "Get a Free Quote"
     }
   },
-  "contactForm": {
-    "labels": {
-      "name": "Name",
-      "email": "Email",
-      "phone": "Phone",
-      "service": "Service Interested In",
-      "message": "Message"
+  "contactUsForm": {
+    "hero": {
+      "title": "Contact Us",
+      "subtitle": "Reach out to us for any inquiries or quotes."
     },
-    "services": {
-      "plumbing": "Plumbing",
-      "tiling": "Tiling",
-      "fullRenovation": "Full Renovation"
+    "form": {
+      "title": "Get in Touch",
+      "labels": {
+        "name": "Name",
+        "email": "Email",
+        "phone": "Phone",
+        "message": "Message"
+      },
+      "placeholders": {
+        "name": "Your Name",
+        "email": "Your Email Address",
+        "phone": "Your Phone Number",
+        "message": "Your Message"
+      },
+      "submitButton": "Send Message",
+      "successTitle": "Message Sent!",
+      "successMessage": "Thank you for reaching out! We will get back to you shortly.",
+      "errorTitle": "Failed to Send",
+      "errorMessage": "Something went wrong. Please try again later."
     },
-    "buttons": {
-      "submit": "Submit"
-    },
-    "submitSuccess": "Form submitted successfully!"
+    "info": {
+      "title": "Contact Information",
+      "phoneLabel": "Phone",
+      "emailLabel": "Email",
+      "addressLabel": "Address"
+    }
+  },
+  "galleryRedirect": {
+    "title": "Explore Our Gallery"
   }
       
       

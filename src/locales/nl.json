@@ -244,23 +244,40 @@
           "getQuote": "Vraag een Gratis Offerte Aan"
         }
       },
-      "contactForm": {
-        "labels": {
-          "name": "Naam",
-          "email": "E-mail",
-          "phone": "Telefoon",
-          "service": "Geïnteresseerde Dienst",
-          "message": "Bericht"
+      "contactUsForm": {
+        "hero": {
+          "title": "Neem contact met ons op",
+          "subtitle": "Neem contact met ons op voor vragen of offertes."
         },
-        "services": {
-          "plumbing": "Loodgieterij",
-          "tiling": "Tegelen",
-          "fullRenovation": "Volledige Renovatie"
+        "form": {
+          "title": "Neem contact op",
+          "labels": {
+            "name": "Naam",
+            "email": "E-mail",
+            "phone": "Telefoon",
+            "message": "Bericht"
+          },
+          "placeholders": {
+            "name": "Uw Naam",
+            "email": "Uw E-mailadres",
+            "phone": "Uw Telefoonnummer",
+            "message": "Uw Bericht"
+          },
+          "submitButton": "Verstuur Bericht",
+          "successTitle": "Bericht Verzonden!",
+          "successMessage": "Bedankt voor uw bericht! We nemen spoedig contact met u op.",
+          "errorTitle": "Verzenden Mislukt",
+          "errorMessage": "Er is iets misgegaan. Probeer het later opnieuw."
         },
-        "buttons": {
-          "submit": "Verzenden"
-        },
-        "submitSuccess": "Formulier succesvol verzonden!"
+        "info": {
+          "title": "Contactinformatie",
+          "phoneLabel": "Telefoon",
+          "emailLabel": "E-mail",
+          "addressLabel": "Adres"
+        }
+      },
+      "galleryRedirect": {
+        "title": "Ontdek Onze Gallerij"
       }
 
   }

@@ -21,11 +21,16 @@
             {{ $t("hero.cta.getQuote") }}
           </button>
         </router-link>
-        <a href="https://wa.me/yourwhatsappnumber">
+        <a href="https://wa.me/31685011945">
           <button class="cta-button secondary">
             {{ $t("hero.cta.whatsapp") }}
           </button>
         </a>
+        <router-link to="/gallery">
+          <button class="cta-button third">
+            {{ $t("galleryRedirect.title") }}
+          </button>
+        </router-link>
       </div>
     </div>
   </section>
@@ -161,6 +166,17 @@ export default {
 /* Secondary CTA Button (WhatsApp) */
 .cta-button.secondary {
   background-color: #25d366; /* WhatsApp green */
+  color: white;
+  padding: 12px 25px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.third {
+  background-color: #ff5f40; /* WhatsApp green */
   color: white;
   padding: 12px 25px;
   border-radius: 5px;

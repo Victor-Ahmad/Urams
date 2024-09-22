@@ -3,9 +3,6 @@
     <div class="container">
       <!-- Contact Information in Row (Web) or Column (Mobile) -->
       <div class="contact-info">
-        <a href="mailto:info@urams.com">
-          <i class="fas fa-envelope"></i> info@urams.com
-        </a>
         <a href="tel:+31685011945">
           <i class="fas fa-phone-alt"></i> +31 6 85011945
         </a>
